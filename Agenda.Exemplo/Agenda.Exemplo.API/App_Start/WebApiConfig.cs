@@ -1,5 +1,6 @@
 ﻿using SimpleInjector.Integration.WebApi;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Agenda.Exemplo.API
 {
@@ -8,6 +9,9 @@ namespace Agenda.Exemplo.API
         public static void Register(HttpConfiguration config)
         {
             // Serviços e configuração da API da Web
+
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
 
             // Rotas da API da Web
             config.MapHttpAttributeRoutes();

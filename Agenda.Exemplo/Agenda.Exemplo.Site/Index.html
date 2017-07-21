@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    
+    <title>Agenda.Exemplo</title>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    
+</head>
+
+<body>
+
+    <div id="lista_grupo">
+
+        <div class="container">
+
+                <h3>Lista de Grupo</h3>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td>Id</td>
+                            <td>Nome</td>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: {data: grupos, as: 'grupo'}">
+                        <tr>
+                            <td data-bind="text: grupo.id"></td>
+                            <td data-bind="text: grupo.nome"></td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+
+    </div>
+
+    <!-- bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- knockout -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+
+    <!-- aplicacao -->
+    <script src="AppScript/_API/GrupoAPI.js"></script>
+    <script src="AppScript/_Aplicacao/Aplicacao.js"></script>
+
+    <script src="AppScript/Grupo/ListaGrupo/ListaGrupoViewModel.js"></script>
+    <script src="AppScript/Grupo/ListaGrupo/init.js"></script>
+
+</body>
+
+</html>
