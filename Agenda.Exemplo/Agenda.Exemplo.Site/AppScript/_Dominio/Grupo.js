@@ -9,7 +9,7 @@
     };
 
     this.CriarDTO = function () {
-        return new {
+        return {
             id: this.id(),
             nome: this.nome()
         };

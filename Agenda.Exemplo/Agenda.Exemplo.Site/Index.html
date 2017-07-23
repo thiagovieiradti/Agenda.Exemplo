@@ -5,51 +5,61 @@
     
     <title>Agenda.Exemplo</title>
 
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
 
-    <div id="lista_grupo">
+    <div id="agenda">
 
-        <div class="container">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand">Agenda.Exemplo</a>
+                </div>
+                <ul class="nav navbar-nav" data-bind="foreach: {data: links, as: 'link'}">
+                    <li data-bind="click: $parent.navegar.bind($parent, link), css: {'active': $parent.linkAbertoNome() == link.nome}">
+                        <a href="#" data-bind="text: link.nome"></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
-                <h3>Lista de Grupo</h3>
+    </div>
 
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <td>Id</td>
-                            <td>Nome</td>
-                        </tr>
-                    </thead>
-                    <tbody data-bind="foreach: {data: grupos, as: 'grupo'}">
-                        <tr>
-                            <td data-bind="text: grupo.id"></td>
-                            <td data-bind="text: grupo.nome"></td>
-                        </tr>
-                    </tbody>
-                </table>
+    <div class="container">
+
+        <div class="jumbotron">
+            
+            <div id="agendaConteudo">
+                <h3>Agenda.Exemplo</h3>
+            </div>
         </div>
 
     </div>
 
-    <!-- bootstrap -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
     <!-- knockout -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+
+    <!-- dominio -->
+    <script src="AppScript/_Dominio/Grupo.js"></script>
 
     <!-- aplicacao -->
     <script src="AppScript/_API/GrupoAPI.js"></script>
     <script src="AppScript/_Aplicacao/Aplicacao.js"></script>
+    <script src="AppScript/_Aplicacao/Constantes.js"></script>
 
-    <script src="AppScript/Grupo/ListaGrupo/ListaGrupoViewModel.js"></script>
-    <script src="AppScript/Grupo/ListaGrupo/init.js"></script>
+    <!-- grupo -->
+    <script src="AppScript/Grupo/ListarGrupoViewModel.js"></script>
+    <script src="AppScript/Grupo/InserirGrupoViewModel.js"></script>
+    <script src="AppScript/Grupo/EditarGrupoViewModel.js"></script>
+
+    <!-- agenda -->
+    <script src="AppScript/Agenda/AgendaViewModel.js"></script>
+    <script src="AppScript/Agenda/init.js"></script>
 
 </body>
 

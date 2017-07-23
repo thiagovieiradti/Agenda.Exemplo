@@ -65,6 +65,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AppScript\Agenda\AgendaViewModel.js" />
+    <Content Include="AppScript\Agenda\init.js" />
+    <Content Include="AppScript\Grupo\EditarGrupoViewModel.js" />
+    <Content Include="AppScript\Grupo\InserirGrupoViewModel.js" />
+    <Content Include="AppScript\_Aplicacao\Constantes.js" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -74,14 +79,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AppScript\Grupo\ListaGrupo\init.js" />
-    <Content Include="AppScript\Grupo\ListaGrupo\ListaGrupoViewModel.js" />
+    <Content Include="AppScript\Grupo\ListarGrupoViewModel.js" />
     <Content Include="AppScript\_API\GrupoAPI.js" />
     <Content Include="AppScript\_Aplicacao\Aplicacao.js" />
     <Content Include="AppScript\_Dominio\Grupo.js" />
     <Content Include="favicon.ico" />
     <Content Include="Index.html" />
-    <Content Include="Paginas\Grupo\ListaGrupo.html" />
+    <Content Include="Paginas\Grupo\Grupo.html" />
+    <Content Include="Paginas\Grupo\ListarGrupo.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
