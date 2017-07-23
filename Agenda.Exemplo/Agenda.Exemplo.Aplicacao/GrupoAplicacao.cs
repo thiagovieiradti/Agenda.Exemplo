@@ -25,5 +25,16 @@ namespace Agenda.Exemplo.Aplicacao
         {
             return _grupoRepositorio.ObterGrupos(nome).CriarDTO();
         }
+
+        public int InserirGrupo(GrupoDTO grupoDTO)
+        {
+            var grupoEntidade = grupoDTO.CriarEntidade();
+
+            if (string.IsNullOrWhiteSpace(grupoEntidade.Nome))
+                throw new Exception("Nome do grupo deve ser preenchido.");
+
+            return _grupoRepositorio.InserirGrupo(grupoEntidade);
+
+        }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using Agenda.Exemplo.Dominio.DTO;
 using Agenda.Exemplo.Dominio.Entidade;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -20,6 +19,15 @@ namespace Agenda.Exemplo.Aplicacao.Mapper
         public static IList<GrupoDTO> CriarDTO(this IList<Grupo> entidade)
         {
             return entidade.ToList().ConvertAll(e => e.CriarDTO());
+        }
+
+        public static Grupo CriarEntidade(this GrupoDTO dto)
+        {
+            return new Grupo()
+            {
+                Id = dto.id,
+                Nome = dto.nome
+            };
         }
     }
 }

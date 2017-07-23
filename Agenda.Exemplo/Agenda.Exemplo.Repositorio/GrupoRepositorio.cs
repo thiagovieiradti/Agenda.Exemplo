@@ -2,7 +2,6 @@
 using Agenda.Exemplo.Dominio.Repositorio;
 using Agenda.Exemplo.Repositorio.Base;
 using Dapper;
-using System;
 using System.Collections.Generic;
 
 namespace Agenda.Exemplo.Repositorio
@@ -16,12 +15,23 @@ namespace Agenda.Exemplo.Repositorio
 
         public void EditarGrupo(Grupo grupo)
         {
-            throw new NotImplementedException();
+            var sql = @"
+                UPDATE Grupo
+                SET Nome = @Nome
+                WHERE Id = @Id
+            ";
+
+            Conexao.Execute(sql, grupo);
         }
 
         public int InserirGrupo(Grupo grupo)
         {
-            throw new NotImplementedException();
+            var sql = @"
+                INSERT INTO Grupo (Nome) VALUES (@Nome)
+                SELECT SCOPE_IDENTITY()
+            ";
+
+            return Conexao.QueryFirstOrDefault<int>(sql, grupo);
         }
 
         public Grupo ObterGrupo(int id)
@@ -47,7 +57,8 @@ namespace Agenda.Exemplo.Repositorio
 
         public void RemoverGrupo(int id)
         {
-            throw new NotImplementedException();
+            var sql = @"DELETE Grupo WHERE Id = @Id";
+            Conexao.Execute(sql, new { Id = id });
         }
     }
 }

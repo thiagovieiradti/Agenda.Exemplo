@@ -47,5 +47,20 @@ namespace Agenda.Exemplo.API.Controllers
             }
         }
 
+        [HttpPost]
+        [Route("")]
+        [ResponseType(typeof(int))]
+        public IHttpActionResult InserirGrupo([FromBody] GrupoDTO grupo)
+        {
+            try
+            {
+                return Ok(_grupoAplicacao.InserirGrupo(grupo));
+            }
+            catch(Exception e)
+            {
+                return InternalServerError(e);
+            }
+        }
+
     }
 }

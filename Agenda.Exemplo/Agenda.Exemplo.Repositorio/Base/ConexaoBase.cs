@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using Dapper;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -10,7 +11,13 @@ namespace Agenda.Exemplo.Repositorio.Base
 
         public ConexaoBase()
         {
-            Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["dti_crud"].ConnectionString);
+            Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["connAgenda"].ConnectionString);
         }
+
+        public void Executar(string sql)
+        {
+            Conexao.Execute(sql);
+        }
+
     }
 }
