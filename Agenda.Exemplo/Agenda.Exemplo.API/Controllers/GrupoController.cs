@@ -62,5 +62,35 @@ namespace Agenda.Exemplo.API.Controllers
             }
         }
 
+        [HttpPut]
+        [Route("")]
+        public IHttpActionResult EditarGrupo([FromBody] GrupoDTO grupo)
+        {
+            try
+            {
+                _grupoAplicacao.EditarGrupo(grupo);
+                return Ok();
+            }
+            catch(Exception e)
+            {
+                return InternalServerError(e);
+            }
+        }
+
+        [HttpDelete]
+        [Route("{grupoId:int}")]
+        public IHttpActionResult RemoverGrupo(int grupoId)
+        {
+            try
+            {
+                _grupoAplicacao.RemoverGrupo(grupoId);
+                return Ok();
+            }
+            catch(Exception e)
+            {
+                return InternalServerError(e);
+            }
+        }
+
     }
 }

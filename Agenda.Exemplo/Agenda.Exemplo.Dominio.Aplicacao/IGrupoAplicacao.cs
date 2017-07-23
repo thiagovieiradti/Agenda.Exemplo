@@ -8,5 +8,7 @@ namespace Agenda.Exemplo.Dominio.Aplicacao
         GrupoDTO ObterGrupo(int id);
         IList<GrupoDTO> ObterGrupos(string nome);
         int InserirGrupo(GrupoDTO grupo);
+        void EditarGrupo(GrupoDTO grupo);
+        void RemoverGrupo(int id);
     }
 }

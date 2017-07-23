@@ -52,6 +52,8 @@ namespace Agenda.Exemplo.Repositorio
                 parametros.Add("Nome", "%" + nome + "%");
             }
 
+            sql += " ORDER BY Nome";
+
             return Conexao.Query<Grupo>(sql, parametros).AsList();
         }
 
