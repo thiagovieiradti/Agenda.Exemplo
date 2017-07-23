@@ -32,6 +32,6 @@ _Desenho da arquitetura_
 ## Para executar
 
 * RestAPI: http://localhost:53546/
-** Swagger: http://localhost:53546/swagger
+* Swagger: http://localhost:53546/swagger
 
 * Site: http://localhost:56321/
