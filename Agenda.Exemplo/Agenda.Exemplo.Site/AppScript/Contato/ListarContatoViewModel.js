@@ -26,8 +26,8 @@
         alert('to-do');
     };
 
-    this.editar = function (grupo) {
-        alert('to-do');
+    this.editar = function (contato) {
+        this.AbrirPaginaEditar(contato);
     };
 
 };
@@ -59,6 +59,16 @@ ListarContatoViewModel.prototype.AbrirPaginaInserir = function () {
         nome: 'Contatos',
         html: 'Contato/Contato.html',
         vm: new InserirContatoViewModel(this.$parent)
+    };
+
+    this.$parent.AbrirPagina(link);
+};
+
+ListarContatoViewModel.prototype.AbrirPaginaEditar = function (contato) {
+    var link = {
+        nome: 'Contatos',
+        html: 'Contato/Contato.html',
+        vm: new EditarContatoViewModel(this.$parent, contato.contatoId)
     };
 
     this.$parent.AbrirPagina(link);

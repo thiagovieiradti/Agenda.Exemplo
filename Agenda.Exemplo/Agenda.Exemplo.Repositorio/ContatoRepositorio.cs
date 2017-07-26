@@ -15,6 +15,25 @@ namespace Agenda.Exemplo.Repositorio
 
         }
 
+        public void EditarContato(Contato contato)
+        {
+            var sql = @"
+                UPDATE
+                    Contato
+                SET
+                    Nome = @Nome,
+                    GrupoId = @GrupoId
+                WHERE
+                    ContatoId = @ContatoId
+            ";
+
+            Conexao.Execute(sql, new {
+                Nome = contato.Nome,
+                GrupoId = contato.Grupo.GrupoId,
+                ContatoId = contato.ContatoId
+            });
+        }
+
         public int InserirContato(Contato contato)
         {
             var sql = @"

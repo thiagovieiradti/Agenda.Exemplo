@@ -7,7 +7,6 @@ namespace Agenda.Exemplo.Repositorio.Teste
     [TestClass]
     public class ContatoTeste
     {
-
         private GrupoRepositorio _grupoRepositorio;
         private ContatoRepositorio _contatoRepositorio;
 
@@ -146,5 +145,35 @@ namespace Agenda.Exemplo.Repositorio.Teste
             Assert.IsTrue(contatos.Any(c => c.ContatoId == contato.ContatoId));
             Assert.IsFalse(contatos.Any(c => c.ContatoId == contato2.ContatoId));
         }
+
+        [TestMethod]
+        public void TesteEditarContato()
+        {
+            var grupo = Util.Entidade.grupo1.Clonar();
+            var contato = new Contato()
+            {
+                Nome = "Arthur",
+                Grupo = grupo
+            };
+
+            grupo.GrupoId =  _grupoRepositorio.InserirGrupo(grupo);
+            contato.ContatoId = _contatoRepositorio.InserirContato(contato);
+
+            var contato2 = _contatoRepositorio.ObterContato(contato.ContatoId);
+
+            Assert.IsNotNull(contato2);
+            Assert.AreEqual(contato.Nome, contato2.Nome);
+
+            contato2.Nome = "Julia";
+
+            _contatoRepositorio.EditarContato(contato2);
+
+            var contato3 = _contatoRepositorio.ObterContato(contato2.ContatoId);
+
+            Assert.AreNotEqual(contato.Nome, contato3.Nome);
+            Assert.AreEqual(contato2.Nome, contato3.Nome);
+
+        }
+
     }
 }

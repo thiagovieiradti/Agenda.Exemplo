@@ -63,5 +63,21 @@ namespace Agenda.Exemplo.API.Controllers
             }
         }
 
+        [HttpPut]
+        [Route("")]
+        [ResponseType(typeof(int))]
+        public IHttpActionResult EditarContato([FromBody] ContatoDTO contato)
+        {
+            try
+            {
+                _contatoAplicacao.EditarContato(contato);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return InternalServerError(e);
+            }
+        }
+
     }
 }

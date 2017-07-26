@@ -8,5 +8,6 @@ namespace Agenda.Exemplo.Dominio.Aplicacao
         int InserirContato(ContatoDTO contato);
         ContatoDTO ObterContato(int contatoId);
         IList<ContatoDTO> ObterContatos(int? grupoId, string nome);
+        void EditarContato(ContatoDTO contato);
     }
 }

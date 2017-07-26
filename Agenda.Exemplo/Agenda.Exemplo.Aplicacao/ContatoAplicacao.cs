@@ -3,6 +3,7 @@ using Agenda.Exemplo.Dominio.Aplicacao;
 using Agenda.Exemplo.Dominio.DTO;
 using Agenda.Exemplo.Dominio.Repositorio;
 using System.Collections.Generic;
+using System;
 
 namespace Agenda.Exemplo.Aplicacao
 {
@@ -13,6 +14,11 @@ namespace Agenda.Exemplo.Aplicacao
         public ContatoAplicacao(IContatoRepositorio contatoRepositorio)
         {
             _contatoRepositorio = contatoRepositorio;
+        }
+
+        public void EditarContato(ContatoDTO contato)
+        {
+            _contatoRepositorio.EditarContato(contato.CriarEntidade());
         }
 
         public int InserirContato(ContatoDTO contato)

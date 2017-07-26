@@ -68,6 +68,7 @@
   <ItemGroup>
     <Content Include="AppScript\Agenda\AgendaViewModel.js" />
     <Content Include="AppScript\Agenda\init.js" />
+    <Content Include="AppScript\Contato\EditarContatoViewModel.js" />
     <Content Include="AppScript\Contato\InserirContatoViewModel.js" />
     <Content Include="AppScript\Contato\ListarContatoViewModel.js" />
     <Content Include="AppScript\Grupo\EditarGrupoViewModel.js" />
