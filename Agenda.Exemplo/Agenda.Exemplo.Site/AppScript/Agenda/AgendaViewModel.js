@@ -11,7 +11,9 @@
             vm: new ListarGrupoViewModel(this)
         },
         {
-            nome: 'Contatos'
+            nome: 'Contatos',
+            html: 'Contato/ListarContato.html',
+            vm: new ListarContatoViewModel(this)
         },
         {
             nome: 'Chamadas'

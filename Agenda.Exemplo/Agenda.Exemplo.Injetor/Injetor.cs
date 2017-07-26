@@ -23,7 +23,10 @@ namespace Agenda.Exemplo.Injetor
         public static void IniciarContainer()
         {   
             Container.Register<IGrupoRepositorio, GrupoRepositorio>();
+            Container.Register<IContatoRepositorio, ContatoRepositorio>();
+            
             Container.Register<IGrupoAplicacao, GrupoAplicacao>();
+            Container.Register<IContatoAplicacao, ContatoAplicacao>();
         }
 
         public static void FinalizarContainer()

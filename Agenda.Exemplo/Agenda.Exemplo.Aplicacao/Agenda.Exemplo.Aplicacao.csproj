@@ -40,7 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContatoAplicacao.cs" />
     <Compile Include="GrupoAplicacao.cs" />
+    <Compile Include="Mapper\ContatoMapper.cs" />
     <Compile Include="Mapper\GrupoMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

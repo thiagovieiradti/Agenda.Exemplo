@@ -1,0 +1,49 @@
+﻿<div class="row">
+
+    <div class="col-md-12">
+
+        <h4>Lista de Contatos</h4>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>Grupo</label>
+                <select class="form-control"></select>
+            </div>
+            <div class="col-md-4">
+                <label>Nome</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" data-bind="textInput: filtro" />
+                    <span class="input-group-btn">
+                        <button class="btn" data-bind="click: filtrar">Filtrar</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <br />
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <td><strong>#</strong></td>
+                    <td><strong>Grupo</strong></td>
+                    <td colspan="2"><strong>Nome</strong></td>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: {data: contatos, as: 'contato'}">
+                <tr>
+                    <td data-bind="text: contato.contatoId"></td>
+                    <td data-bind="text: contato.grupo.nome"></td>
+                    <td data-bind="text: contato.nome"></td>
+                    <td>
+                        <button class="btn btn-primary" data-bind="click: $parent.editar.bind($parent, contato)">Editar</button>
+                        <button class="btn btn-warning" data-bind="click: $parent.remover.bind($parent, contato)">Excluir</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button class="btn btn-success float-right" data-bind="click: inserir">Adicionar</button>
+
+    </div>
+</div>
