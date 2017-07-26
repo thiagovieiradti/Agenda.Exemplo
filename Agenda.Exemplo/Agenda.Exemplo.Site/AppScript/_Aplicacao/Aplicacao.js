@@ -4,7 +4,8 @@
     this.elementoId = elementoId;
 
     this.$api = {
-        $grupo: new GrupoAPI(this)
+        $grupo: new GrupoAPI(this),
+        $contato: new ContatoAPI(this)
     };
 
     this.init = function () {

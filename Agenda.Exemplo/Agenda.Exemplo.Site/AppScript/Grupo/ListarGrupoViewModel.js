@@ -5,7 +5,7 @@
 
     this.grupos = ko.observableArray();
 
-    this.filtro = ko.observable();
+    this.nome = ko.observable();
 
     this.init = function ($app) {
         this.$app = $app;
@@ -40,7 +40,7 @@ ListarGrupoViewModel.prototype.ObterGrupos = function () {
         this.grupos(data);
     };
 
-    this.$app.$api.$grupo.ObterGrupos(this.filtro(), retorno, this);
+    this.$app.$api.$grupo.ObterGrupos(this.nome(), retorno, this);
 };
 
 ListarGrupoViewModel.prototype.AbrirPaginaInserir = function () {

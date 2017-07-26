@@ -71,7 +71,10 @@
     <Content Include="AppScript\Contato\ListarContatoViewModel.js" />
     <Content Include="AppScript\Grupo\EditarGrupoViewModel.js" />
     <Content Include="AppScript\Grupo\InserirGrupoViewModel.js" />
+    <Content Include="AppScript\_API\ContatoAPI.js" />
     <Content Include="AppScript\_Aplicacao\Constantes.js" />
+    <Content Include="AppScript\_Entidade\Contato.js" />
+    <Content Include="AppScript\_KO\_Binding\enterkey.js" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -84,7 +87,7 @@
     <Content Include="AppScript\Grupo\ListarGrupoViewModel.js" />
     <Content Include="AppScript\_API\GrupoAPI.js" />
     <Content Include="AppScript\_Aplicacao\Aplicacao.js" />
-    <Content Include="AppScript\_Dominio\Grupo.js" />
+    <Content Include="AppScript\_Entidade\Grupo.js" />
     <Content Include="favicon.ico" />
     <Content Include="Index.html" />
     <Content Include="Paginas\Contato\Contato.html" />
