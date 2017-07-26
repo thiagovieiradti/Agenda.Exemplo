@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Agenda.Exemplo.Repositorio
 {
-    public class GrupoRepositorio : ConexaoBase, IGrupoRepositorio
+    public class GrupoRepositorio : RepositorioBase, IGrupoRepositorio
     {
         public GrupoRepositorio() : base()
         {

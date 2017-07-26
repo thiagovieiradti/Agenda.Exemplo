@@ -26,7 +26,7 @@ namespace Agenda.Exemplo.Repositorio.Teste
         // banco
         public static void IniciarBanco()
         {
-            var _conexao = new ConexaoBase();
+            var _conexao = new RepositorioBase();
 
             _conexao.Executar("DELETE Chamada");
             _conexao.Executar("DELETE TelefoneContato");

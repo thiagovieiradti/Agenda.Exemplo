@@ -44,7 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\ConexaoBase.cs" />
+    <Compile Include="Base\RepositorioBase.cs" />
+    <Compile Include="ContatoRepositorio.cs" />
     <Compile Include="GrupoRepositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -5,11 +5,11 @@ using System.Data.SqlClient;
 
 namespace Agenda.Exemplo.Repositorio.Base
 {
-    public class ConexaoBase
+    public class RepositorioBase
     {
         protected IDbConnection Conexao;
 
-        public ConexaoBase()
+        public RepositorioBase()
         {
             Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["connAgenda"].ConnectionString);
         }
