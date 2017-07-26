@@ -3,9 +3,9 @@ Aplicação de Agenda exemplo para utilização de tecnologias nos projetos dti/
 
 
 ## Banco de dados
-O MER e o script para criação do banco de dados estão na pasta \Banco.
+O script para criação do banco de dados está na pasta \Banco.
 
-![MER](/Banco/mer.png)
+![MER](/Diagramas/mer.png)
 
 ## Aplicação
 
@@ -24,12 +24,18 @@ Algumas tecnologias utilizadas:
 	* Bootstrap
 
 ## Arquitetura Backend
-_Desenho da arquitetura_
+![Backend](/Diagramas/backend.jpg)
 
 ## Arquitetura JS
-_Desenho da arquitetura_
+![Frontend](/Diagramas/frontend.jpg)
 
 ## Para executar
 
 * RestAPI: http://localhost:53546/swagger
 * Site: http://localhost:56321/
+
+## to-do list
+@matheusaraujo
+1. refatoração de crud de cliente
+2. criar operação de registrar chamadas
+3. redesenhar diagramas
