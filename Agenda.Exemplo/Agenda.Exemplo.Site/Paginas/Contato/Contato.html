@@ -1,1 +1,16 @@
-﻿
+﻿<div class="form-group">
+    <label>#</label>
+    <input type="text" disabled class="form-control" data-bind="textInput: contato.contatoId">
+</div>
+
+<div class="form-group">
+    <label>Grupo:</label>
+    <select class="form-control" data-bind="options: grupos, optionsText: 'nome', optionsValue: 'grupoId', value: contato.grupo.grupoId"></select>
+</div>
+
+<div class="form-group">
+    <label>Nome:</label>
+    <input type="text" class="form-control" data-bind="textInput: contato.nome">
+</div>
+
+<button class="btn btn-success" data-bind="click: salvar">Salvar</button>

@@ -8,3 +8,8 @@ ContatoAPI.prototype.ObterContatos = function (grupoId, nome, retorno, contexto)
     if (nome) url += 'nome=' + nome + '&';
     this.$app.AjaxGet(url, retorno, null, contexto);
 };
+
+ContatoAPI.prototype.InserirContato = function (contato, retorno, contexto) {
+    var url = URL_API + 'contatos';
+    this.$app.AjaxPost(url, contato, retorno, null, contexto);
+};
