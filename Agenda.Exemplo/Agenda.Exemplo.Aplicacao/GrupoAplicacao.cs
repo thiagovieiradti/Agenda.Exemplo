@@ -30,15 +30,15 @@ namespace Agenda.Exemplo.Aplicacao
 
         private void ValidarGrupoEditar(Grupo grupo)
         {
-            if (grupo.Id <= 0)
+            if (grupo.GrupoId <= 0)
                 throw new Exception("ID do grupo não definido");
 
             ValidarGrupo(grupo);
         }
         
-        public GrupoDTO ObterGrupo(int id)
+        public GrupoDTO ObterGrupo(int grupoId)
         {
-            return _grupoRepositorio.ObterGrupo(id).CriarDTO();
+            return _grupoRepositorio.ObterGrupo(grupoId).CriarDTO();
         }
 
         public IList<GrupoDTO> ObterGrupos(string nome)
@@ -60,9 +60,9 @@ namespace Agenda.Exemplo.Aplicacao
             _grupoRepositorio.EditarGrupo(grupoEntidade);
         }
         
-        public void RemoverGrupo(int id)
+        public void RemoverGrupo(int grupoId)
         {
-            _grupoRepositorio.RemoverGrupo(id);
+            _grupoRepositorio.RemoverGrupo(grupoId);
         }
     }
 }

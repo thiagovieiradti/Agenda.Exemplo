@@ -5,10 +5,10 @@ namespace Agenda.Exemplo.Dominio.Repositorio
 {
     public interface IGrupoRepositorio
     {
-        Grupo ObterGrupo(int id);
+        Grupo ObterGrupo(int grupoId);
         IList<Grupo> ObterGrupos(string nome);
         int InserirGrupo(Grupo grupo);
         void EditarGrupo(Grupo grupo);
-        void RemoverGrupo(int id);
+        void RemoverGrupo(int grupoId);
     }
 }

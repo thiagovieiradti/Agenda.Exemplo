@@ -27,7 +27,7 @@ namespace Agenda.Exemplo.Repositorio.Teste
             var novoGrupo = _grupoRepositorio.ObterGrupo(grupoId);
 
             Assert.IsNotNull(novoGrupo);
-            Assert.AreEqual(grupoId, novoGrupo.Id);
+            Assert.AreEqual(grupoId, novoGrupo.GrupoId);
             Assert.AreEqual(grupo.Nome, novoGrupo.Nome);
         }
 
@@ -36,7 +36,7 @@ namespace Agenda.Exemplo.Repositorio.Teste
         {
             var grupo = Util.Entidade.grupo2.Clonar();
             int grupoId = _grupoRepositorio.InserirGrupo(grupo);
-            grupo.Id = grupoId;
+            grupo.GrupoId = grupoId;
 
             Assert.IsTrue(grupoId > 0);
 
@@ -47,7 +47,7 @@ namespace Agenda.Exemplo.Repositorio.Teste
             var novoGrupo = _grupoRepositorio.ObterGrupo(grupoId);
 
             Assert.IsNotNull(novoGrupo);
-            Assert.AreEqual(grupoId, novoGrupo.Id);
+            Assert.AreEqual(grupoId, novoGrupo.GrupoId);
             Assert.AreEqual(grupo.Nome, novoGrupo.Nome);
             Assert.AreNotEqual(Util.Entidade.grupo2.Nome, novoGrupo.Nome);
         }

@@ -27,7 +27,7 @@
             </thead>
             <tbody data-bind="foreach: {data: grupos, as: 'grupo'}">
                 <tr>
-                    <td data-bind="text: grupo.id"></td>
+                    <td data-bind="text: grupo.grupoId"></td>
                     <td data-bind="text: grupo.nome"></td>
                     <td>
                         <button class="btn btn-primary" data-bind="click: $parent.editar.bind($parent, grupo)">Editar</button>

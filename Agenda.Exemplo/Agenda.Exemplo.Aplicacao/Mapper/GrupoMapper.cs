@@ -11,7 +11,7 @@ namespace Agenda.Exemplo.Aplicacao.Mapper
         {
             return new GrupoDTO()
             {
-                id = entidade.Id,
+                grupoId = entidade.GrupoId,
                 nome = entidade.Nome
             };
         }
@@ -25,7 +25,7 @@ namespace Agenda.Exemplo.Aplicacao.Mapper
         {
             return new Grupo()
             {
-                Id = dto.id,
+                GrupoId = dto.grupoId,
                 Nome = dto.nome
             };
         }

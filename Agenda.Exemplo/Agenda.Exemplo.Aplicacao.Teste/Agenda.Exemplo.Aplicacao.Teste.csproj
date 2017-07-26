@@ -69,6 +69,10 @@
       <Project>{073f597e-cd70-4262-8a29-25e9b98d71cb}</Project>
       <Name>Agenda.Exemplo.Injetor</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Agenda.Exemplo.Repositorio\Agenda.Exemplo.Repositorio.csproj">
+      <Project>{B524AB64-5B7C-4F95-8A40-5B27E8795FA4}</Project>
+      <Name>Agenda.Exemplo.Repositorio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

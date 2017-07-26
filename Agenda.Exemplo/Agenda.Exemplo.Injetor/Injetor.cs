@@ -8,26 +8,33 @@ namespace Agenda.Exemplo.Injetor
 {
     public class Injetor
     {
-        private static Container container = new Container();
-
+        private static Container container = null;
+        
         public static Container Container
         {
             get
             {
+                if (container == null)
+                    container = new Container();
                 return container;
             }
         }
         
         public static void IniciarContainer()
-        {
-            container.Register<IGrupoRepositorio, GrupoRepositorio>();
+        {   
+            Container.Register<IGrupoRepositorio, GrupoRepositorio>();
+            Container.Register<IGrupoAplicacao, GrupoAplicacao>();
+        }
 
-            container.Register<IGrupoAplicacao, GrupoAplicacao>();
+        public static void FinalizarContainer()
+        {
+            container.Dispose();
+            container = null;
         }
 
         public static T ObterInstanciaDe<T>()
-        {
-            return (T)container.GetInstance(typeof(T));
+        {   
+            return (T)Container.GetInstance(typeof(T));
         }
 
     }

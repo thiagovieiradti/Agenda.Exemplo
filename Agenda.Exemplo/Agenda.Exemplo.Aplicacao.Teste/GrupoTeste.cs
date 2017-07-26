@@ -14,6 +14,13 @@ namespace Agenda.Exemplo.Aplicacao.Teste
         {
             Injetor.Injetor.IniciarContainer();
             _grupoAplicacao = Injetor.Injetor.ObterInstanciaDe<IGrupoAplicacao>();
+            Util.IniciarBanco();
+        }
+
+        [TestCleanup]
+        public void Finalizar()
+        {
+            Injetor.Injetor.FinalizarContainer();
         }
 
         [TestMethod]
@@ -34,7 +41,7 @@ namespace Agenda.Exemplo.Aplicacao.Teste
 
             var grupoInserido = _grupoAplicacao.ObterGrupo(grupoId);
 
-            Assert.AreEqual(grupoId, grupoInserido.id);
+            Assert.AreEqual(grupoId, grupoInserido.grupoId);
             Assert.AreEqual(grupo.nome, grupoInserido.nome);
         }
     }

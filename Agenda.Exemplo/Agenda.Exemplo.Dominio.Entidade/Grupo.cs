@@ -2,7 +2,7 @@
 {
     public class Grupo
     {
-        public int Id { get; set; }
+        public int GrupoId { get; set; }
         public string Nome { get; set; }
     }
 }

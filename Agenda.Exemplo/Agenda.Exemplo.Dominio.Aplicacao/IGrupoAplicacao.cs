@@ -5,10 +5,10 @@ namespace Agenda.Exemplo.Dominio.Aplicacao
 {
     public interface IGrupoAplicacao
     {
-        GrupoDTO ObterGrupo(int id);
+        GrupoDTO ObterGrupo(int grupoId);
         IList<GrupoDTO> ObterGrupos(string nome);
         int InserirGrupo(GrupoDTO grupo);
         void EditarGrupo(GrupoDTO grupo);
-        void RemoverGrupo(int id);
+        void RemoverGrupo(int grupoId);
     }
 }

@@ -18,7 +18,7 @@ namespace Agenda.Exemplo.Repositorio
             var sql = @"
                 UPDATE Grupo
                 SET Nome = @Nome
-                WHERE Id = @Id
+                WHERE GrupoId = @GrupoId
             ";
 
             Conexao.Execute(sql, grupo);
@@ -34,15 +34,15 @@ namespace Agenda.Exemplo.Repositorio
             return Conexao.QueryFirstOrDefault<int>(sql, grupo);
         }
 
-        public Grupo ObterGrupo(int id)
+        public Grupo ObterGrupo(int grupoId)
         {
-            var sql = "SELECT Id, Nome FROM Grupo WHERE Id = @Id";
-            return Conexao.QuerySingleOrDefault<Grupo>(sql, new { Id = id});
+            var sql = "SELECT GrupoId, Nome FROM Grupo WHERE GrupoId = @GrupoId";
+            return Conexao.QuerySingleOrDefault<Grupo>(sql, new { GrupoId = grupoId});
         }
 
         public IList<Grupo> ObterGrupos(string nome)
         {
-            var sql = "SELECT Id, Nome FROM Grupo";
+            var sql = "SELECT GrupoId, Nome FROM Grupo";
 
             var parametros = new DynamicParameters();
 
@@ -57,10 +57,10 @@ namespace Agenda.Exemplo.Repositorio
             return Conexao.Query<Grupo>(sql, parametros).AsList();
         }
 
-        public void RemoverGrupo(int id)
+        public void RemoverGrupo(int grupoId)
         {
-            var sql = @"DELETE Grupo WHERE Id = @Id";
-            Conexao.Execute(sql, new { Id = id });
+            var sql = @"DELETE Grupo WHERE GrupoId = @GrupoId";
+            Conexao.Execute(sql, new { GrupoId = grupoId });
         }
     }
 }

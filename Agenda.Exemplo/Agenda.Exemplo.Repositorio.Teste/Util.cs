@@ -10,7 +10,7 @@ namespace Agenda.Exemplo.Repositorio.Teste
         {
             return new Grupo()
             {
-                Id = grupo.Id,
+                GrupoId = grupo.GrupoId,
                 Nome = grupo.Nome
             };
         }

@@ -60,14 +60,14 @@ ListarGrupoViewModel.prototype.RemoverGrupo = function (grupo) {
         this.ObterGrupos();
     };
 
-    this.$app.$api.$grupo.RemoverGrupo(grupo.id, retorno, this);
+    this.$app.$api.$grupo.RemoverGrupo(grupo.grupoId, retorno, this);
 };
 
 ListarGrupoViewModel.prototype.AbrirPaginaEditar = function (grupo) {
     var link = {
         nome: 'Grupos',
         html: 'Grupo/Grupo.html',
-        vm: new EditarGrupoViewModel(this.$parent, grupo.id)
+        vm: new EditarGrupoViewModel(this.$parent, grupo.grupoId)
     };
 
     this.$parent.AbrirPagina(link);

@@ -1,16 +1,16 @@
 ﻿function Grupo() {
 
-    this.id = ko.observable();
+    this.grupoId = ko.observable();
     this.nome = ko.observable();
 
     this.Preencher = function (dto) {
-        this.id(dto.id);
+        this.grupoId(dto.grupoId);
         this.nome(dto.nome);
     };
 
     this.CriarDTO = function () {
         return {
-            id: this.id(),
+            grupoId: this.grupoId(),
             nome: this.nome()
         };
     };
