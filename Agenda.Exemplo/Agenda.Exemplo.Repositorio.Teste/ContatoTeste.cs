@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Agenda.Exemplo.Dominio.Entidade;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Agenda.Exemplo.Dominio.Entidade;
+using System.Linq;
 
 namespace Agenda.Exemplo.Repositorio.Teste
 {
@@ -41,6 +41,110 @@ namespace Agenda.Exemplo.Repositorio.Teste
             Assert.AreEqual(contato.Grupo.GrupoId, contato2.Grupo.GrupoId);
             Assert.AreEqual(contato.Grupo.Nome, contato2.Grupo.Nome);
             
+        }
+
+        [TestMethod]
+        public void TesteObterContatosSemParametros()
+        {
+            var grupo = Util.Entidade.grupo1.Clonar();
+            var contato = new Contato()
+            {
+                Nome = "João da Silva",
+                Grupo = grupo
+            };
+
+            var contato2 = new Contato()
+            {
+                Nome = "Maria",
+                Grupo = grupo
+            };
+
+            grupo.GrupoId = _grupoRepositorio.InserirGrupo(grupo);
+            contato.ContatoId = _contatoRepositorio.InserirContato(contato);
+            contato2.ContatoId = _contatoRepositorio.InserirContato(contato2);
+            var contatos = _contatoRepositorio.ObterContatos(null, null);
+
+            Assert.IsNotNull(contatos);
+            Assert.IsTrue(contatos.Any(c => c.ContatoId == contato.ContatoId));
+            Assert.IsTrue(contatos.Any(c => c.ContatoId == contato2.ContatoId));
+        }
+
+        [TestMethod]
+        public void TesteObterContatosComGrupo()
+        {
+            var grupo = Util.Entidade.grupo1.Clonar();
+            var contato = new Contato()
+            {
+                Nome = "João da Silva",
+                Grupo = grupo
+            };
+
+            var contato2 = new Contato()
+            {
+                Nome = "Maria",
+                Grupo = grupo
+            };
+
+            grupo.GrupoId = _grupoRepositorio.InserirGrupo(grupo);
+            contato.ContatoId = _contatoRepositorio.InserirContato(contato);
+            contato2.ContatoId = _contatoRepositorio.InserirContato(contato2);
+            var contatos = _contatoRepositorio.ObterContatos(grupo.GrupoId, null);
+
+            Assert.IsNotNull(contatos);
+            Assert.IsTrue(contatos.Any(c => c.ContatoId == contato.ContatoId));
+            Assert.IsTrue(contatos.Any(c => c.ContatoId == contato2.ContatoId));
+        }
+
+        [TestMethod]
+        public void TesteObterContatosComNome()
+        {
+            var grupo = Util.Entidade.grupo1.Clonar();
+            var contato = new Contato()
+            {
+                Nome = "João da Silva",
+                Grupo = grupo
+            };
+
+            var contato2 = new Contato()
+            {
+                Nome = "Maria",
+                Grupo = grupo
+            };
+            
+            grupo.GrupoId = _grupoRepositorio.InserirGrupo(grupo);
+            contato.ContatoId = _contatoRepositorio.InserirContato(contato);
+            contato2.ContatoId = _contatoRepositorio.InserirContato(contato2);
+            var contatos = _contatoRepositorio.ObterContatos(null, contato.Nome);
+
+            Assert.IsNotNull(contatos);
+            Assert.IsTrue(contatos.Any(c => c.ContatoId == contato.ContatoId));
+            Assert.IsFalse(contatos.Any(c => c.ContatoId == contato2.ContatoId));
+        }
+
+        [TestMethod]
+        public void TesteObterContatosComNomeEGrupo()
+        {
+            var grupo = Util.Entidade.grupo1.Clonar();
+            var contato = new Contato()
+            {
+                Nome = "João da Silva",
+                Grupo = grupo
+            };
+
+            var contato2 = new Contato()
+            {
+                Nome = "Maria",
+                Grupo = grupo
+            };
+
+            grupo.GrupoId = _grupoRepositorio.InserirGrupo(grupo);
+            contato.ContatoId = _contatoRepositorio.InserirContato(contato);
+            contato2.ContatoId = _contatoRepositorio.InserirContato(contato2);
+            var contatos = _contatoRepositorio.ObterContatos(grupo.GrupoId, contato.Nome);
+
+            Assert.IsNotNull(contatos);
+            Assert.IsTrue(contatos.Any(c => c.ContatoId == contato.ContatoId));
+            Assert.IsFalse(contatos.Any(c => c.ContatoId == contato2.ContatoId));
         }
     }
 }

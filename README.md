@@ -36,8 +36,8 @@ Algumas tecnologias utilizadas:
 
 ## to-do list
 @matheusaraujo
-1. refatoração de crud de cliente
 1. refatoração do injetor de dependências
+1. finalizar crud de cliente
 1. criar operação de registrar chamadas
-1. refatoração de lista de chamadas
+1. criar lista de chamadas
 1. redesenhar diagramas
