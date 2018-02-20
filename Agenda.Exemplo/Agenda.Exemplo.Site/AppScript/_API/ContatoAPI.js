@@ -23,3 +23,8 @@ ContatoAPI.prototype.EditarContato = function (contato, retorno, contexto) {
     var url = URL_API + 'contatos';
     this.$app.AjaxPut(url, contato, retorno, null, contexto);
 };
+
+ContatoAPI.prototype.RemoverContato = function (contatoId, retorno, contexto) {
+    var url = URL_API + 'contatos/' + contatoId;
+    this.$app.AjaxDelete(url, retorno, null, contexto);
+};

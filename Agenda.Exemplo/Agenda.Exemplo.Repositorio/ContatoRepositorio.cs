@@ -113,5 +113,11 @@ namespace Agenda.Exemplo.Repositorio
                 return contato;
             }, splitOn: "GrupoId", param: parametros).AsList();
         }
+
+        public void RemoverContato(int contatoId)
+        {
+            var sql = @"DELETE Contato WHERE contatoId = @contatoId";
+            Conexao.Execute(sql, new { contatoId = contatoId });
+        }
     }
 }

@@ -35,5 +35,10 @@ namespace Agenda.Exemplo.Aplicacao
         {
             return _contatoRepositorio.ObterContatos(grupoId, nome).CriarDTO();
         }
+
+        public void RemoverContato(int contatoId)
+        {   
+            _contatoRepositorio.RemoverContato(contatoId);
+        }
     }
 }

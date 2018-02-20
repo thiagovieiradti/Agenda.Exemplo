@@ -79,5 +79,20 @@ namespace Agenda.Exemplo.API.Controllers
             }
         }
 
+        [HttpDelete]
+        [Route("{contatoId:int}")]
+        public IHttpActionResult RemoverGrupo(int contatoId)
+        {
+            try
+            {
+                _contatoAplicacao.RemoverContato(contatoId);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return InternalServerError(e);
+            }
+        }
+
     }
 }

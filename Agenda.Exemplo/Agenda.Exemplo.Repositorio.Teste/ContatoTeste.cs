@@ -175,5 +175,26 @@ namespace Agenda.Exemplo.Repositorio.Teste
 
         }
 
+        [TestMethod]
+        public void TesteExcluirContato()
+        {
+            var grupo = Util.Entidade.grupo1.Clonar();
+            var contato = new Contato()
+            {
+                Nome = "Arthur Siqueira",
+                Grupo = grupo
+            };
+
+            grupo.GrupoId = _grupoRepositorio.InserirGrupo(grupo);
+            Assert.IsTrue(grupo.GrupoId > 0);
+            contato.ContatoId = _contatoRepositorio.InserirContato(contato);
+            Assert.IsTrue(contato.ContatoId > 0);
+
+            _contatoRepositorio.RemoverContato(contato.ContatoId);
+
+            var novoContato = _contatoRepositorio.ObterContato(contato.ContatoId);
+            Assert.IsNull(novoContato);
+        }
+
     }
 }

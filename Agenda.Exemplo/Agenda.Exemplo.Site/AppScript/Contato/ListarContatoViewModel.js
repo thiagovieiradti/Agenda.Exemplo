@@ -22,8 +22,8 @@
         this.AbrirPaginaInserir();
     };
 
-    this.remover = function (grupo) {
-        alert('to-do');
+    this.remover = function (contato) {
+        this.RemoverContato(contato);
     };
 
     this.editar = function (contato) {
@@ -72,4 +72,14 @@ ListarContatoViewModel.prototype.AbrirPaginaEditar = function (contato) {
     };
 
     this.$parent.AbrirPagina(link);
+};
+
+ListarContatoViewModel.prototype.RemoverContato = function (contato) {
+
+    var retorno = function () {
+        this.$app.ExibirMensagemSucesso('Contato excluído');
+        this.ObterContatos();
+    };
+
+    this.$app.$api.$contato.RemoverContato(contato.contatoId, retorno, this);
 };

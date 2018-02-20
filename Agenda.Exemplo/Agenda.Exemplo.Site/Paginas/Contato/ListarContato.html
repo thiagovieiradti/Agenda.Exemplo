@@ -5,11 +5,11 @@
         <h4>Lista de Contatos</h4>
 
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <label>Grupo</label>
                 <select class="form-control" data-bind="options: grupos, optionsText: 'nome', optionsValue: 'grupoId', optionsCaption: '', value: grupoId"></select>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <label>Nome</label>
                 <div class="input-group">
                     <input type="text" class="form-control" data-bind="textInput: nome, enterkey: filtrar" />
@@ -17,6 +17,9 @@
                         <button class="btn" data-bind="click: filtrar">Filtrar</button>
                     </span>
                 </div>
+            </div>
+            <div classs="col-md-4">
+                <span>TESTE</span>
             </div>
         </div>
 
