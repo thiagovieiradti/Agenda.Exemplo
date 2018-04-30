@@ -2,9 +2,8 @@
 using Agenda.Exemplo.Dominio.Repositorio;
 using Agenda.Exemplo.Repositorio.Base;
 using Dapper;
-using System.Linq;
-using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Agenda.Exemplo.Repositorio
 {
@@ -14,6 +13,8 @@ namespace Agenda.Exemplo.Repositorio
         {
 
         }
+
+        public object Conexao { get; private set; }
 
         public void EditarContato(Contato contato)
         {
@@ -27,11 +28,15 @@ namespace Agenda.Exemplo.Repositorio
                     ContatoId = @ContatoId
             ";
 
-            Conexao.Execute(sql, new {
-                Nome = contato.Nome,
-                GrupoId = contato.Grupo.GrupoId,
-                ContatoId = contato.ContatoId
-            });
+            using (var conexao = AbrirConexao())
+            {
+                conexao.Execute(sql, new
+                {
+                    contato.Nome,
+                    contato.Grupo.GrupoId,
+                    contato.ContatoId
+                });
+            }
         }
 
         public int InserirContato(Contato contato)
@@ -41,11 +46,15 @@ namespace Agenda.Exemplo.Repositorio
                 VALUES (@Nome, @GrupoId)
                 SELECT SCOPE_IDENTITY()";
 
-            return Conexao.QuerySingleOrDefault<int>(sql,
-                new {
-                    Nome = contato.Nome,
-                    GrupoId = contato.Grupo.GrupoId
+            using (var conexao = AbrirConexao())
+            {
+                return conexao.QuerySingleOrDefault<int>(sql,
+                new
+                {
+                    contato.Nome,
+                    contato.Grupo.GrupoId
                 });
+            }
         }
 
         public Contato ObterContato(int contatoId)
@@ -63,11 +72,14 @@ namespace Agenda.Exemplo.Repositorio
                 WHERE
                     c.ContatoId = @ContatoId";
 
-            return Conexao.Query<Contato, Grupo, Contato>(sql, (contato, grupo) =>
+            using (var conexao = AbrirConexao())
             {
-                contato.Grupo = grupo;
-                return contato;
-            }, splitOn: "GrupoId", param: new { ContatoId = contatoId }).AsList().SingleOrDefault();
+                return conexao.Query<Contato, Grupo, Contato>(sql, (contato, grupo) =>
+                {
+                    contato.Grupo = grupo;
+                    return contato;
+                }, splitOn: "GrupoId", param: new { ContatoId = contatoId }).AsList().SingleOrDefault();
+            }
         }
 
         public IList<Contato> ObterContatos(int? grupoId, string nome)
@@ -107,17 +119,23 @@ namespace Agenda.Exemplo.Repositorio
 
             sql = string.Format(sql, string.Join(" AND ", clausulaWhere));
 
-            return Conexao.Query<Contato, Grupo, Contato>(sql, (contato, grupo) =>
+            using (var conexao = AbrirConexao())
             {
-                contato.Grupo = grupo;
-                return contato;
-            }, splitOn: "GrupoId", param: parametros).AsList();
+                return conexao.Query<Contato, Grupo, Contato>(sql, (contato, grupo) =>
+                {
+                    contato.Grupo = grupo;
+                    return contato;
+                }, splitOn: "GrupoId", param: parametros).AsList();
+            }
         }
 
         public void RemoverContato(int contatoId)
         {
             var sql = @"DELETE Contato WHERE contatoId = @contatoId";
-            Conexao.Execute(sql, new { contatoId = contatoId });
+            using (var conexao = AbrirConexao())
+            {
+                conexao.Execute(sql, new { contatoId });
+            }
         }
     }
 }

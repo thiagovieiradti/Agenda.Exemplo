@@ -7,16 +7,17 @@ namespace Agenda.Exemplo.Repositorio.Base
 {
     public class RepositorioBase
     {
-        protected IDbConnection Conexao;
-
-        public RepositorioBase()
+        protected IDbConnection AbrirConexao()
         {
-            Conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["connAgenda"].ConnectionString);
+            return new SqlConnection(ConfigurationManager.ConnectionStrings["connAgenda"].ConnectionString);
         }
 
         public void Executar(string sql)
         {
-            Conexao.Execute(sql);
+            using (var conexao = AbrirConexao())
+            {
+                conexao.Execute(sql);
+            }
         }
 
     }

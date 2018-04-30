@@ -21,7 +21,10 @@ namespace Agenda.Exemplo.Repositorio
                 WHERE GrupoId = @GrupoId
             ";
 
-            Conexao.Execute(sql, grupo);
+            using (var conexao = AbrirConexao())
+            {
+                conexao.Execute(sql, grupo);
+            }
         }
 
         public int InserirGrupo(Grupo grupo)
@@ -30,14 +33,19 @@ namespace Agenda.Exemplo.Repositorio
                 INSERT INTO Grupo (Nome) VALUES (@Nome)
                 SELECT SCOPE_IDENTITY()
             ";
-
-            return Conexao.QueryFirstOrDefault<int>(sql, grupo);
+            using (var conexao = AbrirConexao())
+            {
+                return conexao.QueryFirstOrDefault<int>(sql, grupo);
+            }
         }
 
         public Grupo ObterGrupo(int grupoId)
         {
             var sql = "SELECT GrupoId, Nome FROM Grupo WHERE GrupoId = @GrupoId";
-            return Conexao.QuerySingleOrDefault<Grupo>(sql, new { GrupoId = grupoId});
+            using (var conexao = AbrirConexao())
+            {
+                return conexao.QuerySingleOrDefault<Grupo>(sql, new { GrupoId = grupoId });
+            }
         }
 
         public IList<Grupo> ObterGrupos(string nome)
@@ -53,14 +61,19 @@ namespace Agenda.Exemplo.Repositorio
             }
 
             sql += " ORDER BY Nome";
-
-            return Conexao.Query<Grupo>(sql, parametros).AsList();
+            using (var conexao = AbrirConexao())
+            {
+                return conexao.Query<Grupo>(sql, parametros).AsList();
+            }
         }
 
         public void RemoverGrupo(int grupoId)
         {
             var sql = @"DELETE Grupo WHERE GrupoId = @GrupoId";
-            Conexao.Execute(sql, new { GrupoId = grupoId });
+            using (var conexao = AbrirConexao())
+            {
+                conexao.Execute(sql, new { GrupoId = grupoId });
+            }
         }
     }
 }
