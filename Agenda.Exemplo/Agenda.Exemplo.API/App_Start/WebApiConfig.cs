@@ -22,7 +22,8 @@ namespace Agenda.Exemplo.API
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            Injetor.Injetor.IniciarContainer();
+            //Injetor.Injetor.IniciarContainer();
+            Injetor.Injetor.IniciarContainerRepositorioMockado();
 
             config.DependencyResolver = new SimpleInjectorWebApiDependencyResolver(Injetor.Injetor.Container);
 

@@ -1,5 +1,6 @@
 ﻿using Agenda.Exemplo.Dominio.Entidade;
 using Agenda.Exemplo.Dominio.Repositorio;
+using Agenda.Exemplo.RepositorioMock.EntidadeMock;
 using System.Collections.Generic;
 
 namespace Agenda.Exemplo.RepositorioMock
@@ -19,32 +20,12 @@ namespace Agenda.Exemplo.RepositorioMock
 
         public Contato ObterContato(int contatoId)
         {
-            return new Contato()
-            {
-                ContatoId = 1,
-                Grupo = new Grupo()
-                {
-                    GrupoId = 1,
-                    Nome = "Trabalho"
-                },
-                Nome = "Fulano"
-            };
+            return ContatoMock.contatoMock1;
         }
 
         public IList<Contato> ObterContatos(int? grupoId, string nome)
         {
-            return new List<Contato>()
-            {
-                new Contato()
-                {
-                    ContatoId = 1,
-                    Grupo = new Grupo(){
-                        GrupoId = 1,
-                        Nome = "Trabalho"
-                    },
-                    Nome = "Fulano"
-                }
-            };
+            return ContatoMock.listaContato;
         }
 
         public void RemoverContato(int contatoId)

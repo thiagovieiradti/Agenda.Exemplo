@@ -2,6 +2,7 @@
 using Agenda.Exemplo.Dominio.Aplicacao;
 using Agenda.Exemplo.Dominio.Repositorio;
 using Agenda.Exemplo.Repositorio;
+using Agenda.Exemplo.RepositorioMock;
 using SimpleInjector;
 
 namespace Agenda.Exemplo.Injetor
@@ -21,10 +22,22 @@ namespace Agenda.Exemplo.Injetor
         }
         
         public static void IniciarContainer()
-        {   
+        {
             Container.Register<IGrupoRepositorio, GrupoRepositorio>();
             Container.Register<IContatoRepositorio, ContatoRepositorio>();
-            
+
+            RegistarCamadaAplicacao();
+        }
+        public static void IniciarContainerRepositorioMockado()
+        {
+            Container.Register<IGrupoRepositorio, GrupoRepositorio>();
+            Container.Register<IContatoRepositorio, ContatoRepositorioMock>();
+
+            RegistarCamadaAplicacao();
+        }
+
+        private static void RegistarCamadaAplicacao()
+        {
             Container.Register<IGrupoAplicacao, GrupoAplicacao>();
             Container.Register<IContatoAplicacao, ContatoAplicacao>();
         }

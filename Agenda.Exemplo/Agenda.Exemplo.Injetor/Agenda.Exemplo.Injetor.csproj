@@ -62,6 +62,10 @@
       <Project>{31887A99-2689-468F-87E3-544CFFD4E6AD}</Project>
       <Name>Agenda.Exemplo.Dominio.Repositorio</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Agenda.Exemplo.RepositorioMock\Agenda.Exemplo.RepositorioMock.csproj">
+      <Project>{5F293DBB-D58D-4EC1-96E6-8AD39EE9B101}</Project>
+      <Name>Agenda.Exemplo.RepositorioMock</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Agenda.Exemplo.Repositorio\Agenda.Exemplo.Repositorio.csproj">
       <Project>{B524AB64-5B7C-4F95-8A40-5B27E8795FA4}</Project>
       <Name>Agenda.Exemplo.Repositorio</Name>
