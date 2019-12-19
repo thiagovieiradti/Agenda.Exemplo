@@ -42,7 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContatoRepositorioMock.cs" />
+    <Compile Include="EntidadeMock\GrupoMock.cs" />
     <Compile Include="EntidadeMock\ContatoMock.cs" />
+    <Compile Include="GrupoRepositorioMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
