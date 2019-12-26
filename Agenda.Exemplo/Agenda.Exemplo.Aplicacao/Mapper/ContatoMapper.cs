@@ -13,7 +13,8 @@ namespace Agenda.Exemplo.Aplicacao.Mapper
             {
                 contatoId = entidade.ContatoId,
                 nome = entidade.Nome,
-                grupo = entidade.Grupo.CriarDTO()
+                grupo = entidade.Grupo.CriarDTO(),
+                telefone = entidade.Telefone
             };
         }
 
@@ -28,7 +29,8 @@ namespace Agenda.Exemplo.Aplicacao.Mapper
             {
                 ContatoId = dto.contatoId,
                 Nome = dto.nome,
-                Grupo = dto.grupo.CriarEntidade()
+                Grupo = dto.grupo.CriarEntidade(),
+                Telefone = dto.telefone
             };
         }
     }

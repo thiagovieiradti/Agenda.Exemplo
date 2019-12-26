@@ -36,13 +36,15 @@
                     <td><strong>#</strong></td>
                     <td><strong>Grupo</strong></td>
                     <td colspan="2"><strong>Nome</strong></td>
+                    <td><strong>Telefone</strong></td>
                 </tr>
             </thead>
             <tbody data-bind="foreach: {data: contatos, as: 'contato'}">
                 <tr>
                     <td data-bind="text: contato.contatoId"></td>
                     <td data-bind="text: contato.grupo.nome"></td>
-                    <td data-bind="text: contato.nome"></td>
+                    <td colspan="2" data-bind="text: contato.nome"></td>
+                    <td data-bind="text: contato.telefone"></td>
                     <td>
                         <button class="btn btn-primary" data-bind="click: $parent.editar.bind($parent, contato)">Editar</button>
                         <button class="btn btn-warning" data-bind="click: $parent.remover.bind($parent, contato)">Excluir</button>

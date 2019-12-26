@@ -9,7 +9,8 @@ namespace Agenda.Exemplo.RepositorioMock.EntidadeMock
         {
             ContatoId = 1,
             Grupo = GrupoMock.grupoMock1,
-            Nome = "Fulano"
+            Nome = "Fulano",
+            Telefone = 88888888
         };
 
         public static List<Contato> listaContato = new List<Contato>()
