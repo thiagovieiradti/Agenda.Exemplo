@@ -33,6 +33,7 @@ namespace Agenda.Exemplo.Injetor
         {
             Container.Register<IGrupoRepositorio, GrupoRepositorioMock>();
             Container.Register<IContatoRepositorio, ContatoRepositorioMock>();
+            Container.Register<IChamadaRepositorio, ChamadaRepositorioMock>();
 
             RegistarCamadaAplicacao();
         }
