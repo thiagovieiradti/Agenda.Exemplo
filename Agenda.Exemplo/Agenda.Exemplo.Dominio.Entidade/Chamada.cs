@@ -8,7 +8,7 @@ namespace Agenda.Exemplo.Dominio.Entidade
 {
     class Chamada
     {
-        public int ChamdaId { get; set; }
-        public Contato contato { get; set; }
+        public int ChamadaId { get; set; }
+        public Contato Contato { get; set; }
     }
 }
