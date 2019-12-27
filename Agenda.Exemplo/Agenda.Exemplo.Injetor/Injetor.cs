@@ -25,6 +25,7 @@ namespace Agenda.Exemplo.Injetor
         {
             Container.Register<IGrupoRepositorio, GrupoRepositorio>();
             Container.Register<IContatoRepositorio, ContatoRepositorio>();
+            Container.Register<IChamadaRepositorio, ChamadaRepositorio>();
 
             RegistarCamadaAplicacao();
         }
@@ -40,6 +41,7 @@ namespace Agenda.Exemplo.Injetor
         {
             Container.Register<IGrupoAplicacao, GrupoAplicacao>();
             Container.Register<IContatoAplicacao, ContatoAplicacao>();
+            Container.Register<IChamadaAplicacao, ChamadaAplicacao>();
         }
 
         public static void FinalizarContainer()
