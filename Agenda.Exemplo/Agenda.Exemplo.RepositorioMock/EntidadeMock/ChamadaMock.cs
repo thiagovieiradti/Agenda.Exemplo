@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Agenda.Exemplo.RepositorioMock.EntidadeMock
 {
-    class ChamadaMock
+    public class ChamadaMock
     {
         public static Chamada chamadamock1 = new Chamada()
         {

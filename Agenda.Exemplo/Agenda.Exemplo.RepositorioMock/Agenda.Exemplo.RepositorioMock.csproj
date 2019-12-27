@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChamadaRepositorioMock.cs" />
     <Compile Include="ContatoRepositorioMock.cs" />
+    <Compile Include="EntidadeMock\ChamadaMock.cs" />
     <Compile Include="EntidadeMock\GrupoMock.cs" />
     <Compile Include="EntidadeMock\ContatoMock.cs" />
     <Compile Include="GrupoRepositorioMock.cs" />
