@@ -10,8 +10,8 @@ namespace Agenda.Exemplo.Dominio.Aplicacao
     public interface IChamadaAplicacao
     {
         int InserirChamada(ChamadaDTO chamada);
-        ContatoDTO ObterChamada();
-        IList<ContatoDTO> ObterChamadas();
+        ChamadaDTO ObterChamada();
+        IList<ChamadaDTO> ObterChamadas();
         void RemoverChamada();
     }
 }
