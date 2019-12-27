@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Agenda.Exemplo.Dominio.Entidade
 {
-    class Chamada
+    public class Chamada 
     {
         public int ChamadaId { get; set; }
         public Contato Contato { get; set; }
