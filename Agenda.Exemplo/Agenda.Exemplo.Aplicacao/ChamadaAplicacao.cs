@@ -24,7 +24,7 @@ namespace Agenda.Exemplo.Aplicacao
             throw new NotImplementedException();
         }
 
-        public IList<ChamadaDTO> ObterChamadas()
+        public IList<ChamadaDTO> ObterChamadas(int? grupoId)
         {
             throw new NotImplementedException();
         }

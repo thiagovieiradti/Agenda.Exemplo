@@ -22,11 +22,11 @@ namespace Agenda.Exemplo.API.Controllers
         [HttpGet]
         [Route("")]
         [ResponseType(typeof(IList<ChamadaDTO>))]
-        public IHttpActionResult ObterChamadas(int? grupoId = null, string nome = "")
+        public IHttpActionResult ObterChamadas(int? grupoId = null)
         {
             try
             {
-                return Ok(_chamadaAplicacao.ObterChamadas(grupoId, nome));
+                return Ok(_chamadaAplicacao.ObterChamadas(grupoId));
             }
             catch (Exception e)
             {
