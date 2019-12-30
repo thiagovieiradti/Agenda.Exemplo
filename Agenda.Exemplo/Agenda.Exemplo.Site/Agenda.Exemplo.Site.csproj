@@ -93,6 +93,7 @@
     <Content Include="AppScript\_Entidade\Grupo.js" />
     <Content Include="favicon.ico" />
     <Content Include="Index.html" />
+    <Content Include="Paginas\Chamada\ListarChamada.html" />
     <Content Include="Paginas\Contato\Contato.html" />
     <Content Include="Paginas\Contato\ListarContato.html" />
     <Content Include="Paginas\Grupo\Grupo.html" />

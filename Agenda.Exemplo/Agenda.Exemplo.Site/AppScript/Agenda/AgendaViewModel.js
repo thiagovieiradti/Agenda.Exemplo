@@ -16,10 +16,12 @@
             vm: new ListarContatoViewModel(this)
         },
         {
-            nome: 'Chamadas'
+            nome: 'Chamadas',
+            html: 'Chamada/ListarChamada',
+            vm: new ListarchamadaViewModel(this)
         }
     ];
-    
+
     this.init = function ($app) {
         this.$app = $app;
     };
