@@ -2,13 +2,13 @@
     this.$app = $app;
 };
 
-ChamadaAPI.prototype.ObterContatos = function (chamadaId, retorno, contexto) {
+ChamadaAPI.prototype.ObterChamadas = function (chamadaId, retorno, contexto) {
     let url = URL_API + 'chamadas' + chamadaId;
     if (chamadaId) url += 'chamadaId' + chamadaId;
     this.$app.AjaxGet(url, retorno, null, contexto);
 };
 
-ChamadaAPI.prototype.InserirContato = function (chamada, retorno, contexto) {
+ChamadaAPI.prototype.InserirChamada = function (chamada, retorno, contexto) {
     let url = URL_API + 'chamadas';
     this.$app.AjaxPost(url, chamada, retorno, null, contexto);
 };

@@ -8,9 +8,6 @@
         this.Iniciar();
     };
 
-    this.inserir = function () {
-        this.InserirChamada();
-    };
 
     this.remover = function () {
         this.RemoverChamada();

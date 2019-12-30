@@ -30,6 +30,14 @@
         this.AbrirPaginaEditar(contato);
     };
 
+    this.chamar = function (contato) {
+        this.InserirChamada(contato);
+    };
+
+};
+
+ListarContatoViewModel.prototype.InserirChamada = function () {
+
 };
 
 ListarContatoViewModel.prototype.Iniciar = function () {
