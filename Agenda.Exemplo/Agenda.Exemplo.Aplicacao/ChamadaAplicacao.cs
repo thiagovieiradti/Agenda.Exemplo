@@ -14,6 +14,11 @@ namespace Agenda.Exemplo.Aplicacao
     {
         private readonly IChamadaRepositorio _chamadaRepositorio;
 
+        public ChamadaAplicacao(IChamadaRepositorio chamadaRepositorio)
+        {
+            _chamadaRepositorio = chamadaRepositorio;
+        }
+
         public int InserirChamada(ChamadaDTO chamada)
         {
             return _chamadaRepositorio.InserirChamada(chamada.CriarEntidade());
@@ -24,9 +29,9 @@ namespace Agenda.Exemplo.Aplicacao
             throw new NotImplementedException();
         }
 
-        public IList<ChamadaDTO> ObterChamadas(int? grupoId)
+        public IList<ChamadaDTO> ObterChamadas(int? chamadaId)
         {
-            throw new NotImplementedException();
+            return _chamadaRepositorio.ObterChamadas(chamadaId).CriarDTO();
         }
 
         public void RemoverChamada()

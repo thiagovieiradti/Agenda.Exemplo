@@ -23,9 +23,14 @@ namespace Agenda.Exemplo.RepositorioMock
             throw new NotImplementedException();
         }
 
-        public IList<Chamada> ObterChamadas()
+        public IList<Chamada> ObterChamadas(int? chamadaId)
         {
-            throw new NotImplementedException();
+            var listaChamadas = ChamadaMock.listachamadas;
+            if (chamadaId.HasValue)
+            {
+                listaChamadas = listaChamadas.Where(c => c.ChamadaId == chamadaId).ToList();
+            }
+            return listaChamadas;
         }
 
         public void RemoverChamada()
