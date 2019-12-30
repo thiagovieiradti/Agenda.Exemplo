@@ -17,8 +17,8 @@
         },
         {
             nome: 'Chamadas',
-            html: 'Chamada/ListarChamada',
-            vm: new ListarchamadaViewModel(this)
+            html: 'Chamada/ListarChamada.html',
+            vm: new ListarChamadaViewModel(this)
         }
     ];
 
