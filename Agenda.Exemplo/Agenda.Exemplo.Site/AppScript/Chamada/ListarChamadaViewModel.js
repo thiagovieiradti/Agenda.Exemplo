@@ -3,11 +3,12 @@
     this.$app = null;
     this.$parent = $parent;
 
+    this.chamadas = ko.observableArray();
+
     this.init = function ($app) {
         this.$app = $app;
         this.Iniciar();
     };
-
 
     this.remover = function () {
         this.RemoverChamada();
@@ -16,5 +17,22 @@
 };
 
 ListarChamadaViewModel.prototype.Iniciar = function () {
-    // ??
+    this.ObterChamadas();
+};
+
+ListarChamadaViewModel.prototype.ObterChamadas = function () {
+    var retorno = function (data) {
+        this.chamadas(data);
+    };
+
+    this.$app.$api.$chamada.ObterChamadas(this.chamadaId, retorno, this);
 }
+
+ListarChamadaViewModel.prototype.RemoverChamada = function () {
+    var retorno = function () {
+        this.$app.ExibirMensagemSucesso('Chamada excluida');
+        this.ObterChamadas();
+    }
+
+    this.$app.$api.$chamada.RemoverChamada(chamada.chamadaId, retorno, this);
+};

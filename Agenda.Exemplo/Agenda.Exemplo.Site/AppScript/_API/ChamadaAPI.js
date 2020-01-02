@@ -3,7 +3,7 @@
 };
 
 ChamadaAPI.prototype.ObterChamadas = function (chamadaId, retorno, contexto) {
-    let url = URL_API + 'chamadas' + chamadaId;
+    let url = URL_API + 'chamadas';
     if (chamadaId) url += 'chamadaId' + chamadaId;
     this.$app.AjaxGet(url, retorno, null, contexto);
 };

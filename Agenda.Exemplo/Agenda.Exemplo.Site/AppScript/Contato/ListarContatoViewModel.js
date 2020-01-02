@@ -37,7 +37,11 @@
 };
 
 ListarContatoViewModel.prototype.InserirChamada = function () {
-    this.$app.$api.$chamada.InserirChamada(this.chamada.CriarDTO(),retorno,this)
+    var retorno = function () {
+        this.$app.ExibirMensagemSucesso('Chamada realizada');
+    };
+
+    this.$app.$api.$chamada.InserirChamada(this.chamada.CriarDTIO(), retorno, this)
 };
 
 ListarContatoViewModel.prototype.Iniciar = function () {

@@ -1,4 +1,4 @@
-﻿<!-- ko if: chamdas().lengyh == 0 -->
+﻿<!-- ko if: chamadas().length == 0 -->
 <p>Nenhuma Chamada encontrada</p>
 <!-- /ko -->
 
@@ -16,16 +16,16 @@
 
         </tr>
     </thead>
-    <tbody data-bind="foreach: {data: contatos, as: 'contato'}">
+    <tbody data-bind="foreach: {data: chamadas, as: 'chamada'}">
         <tr>
-            <td data-bind="text: contato.contatoId"></td>
-            <td data-bind="text: contato.grupo.nome"></td>
-            <td colspan="2" data-bind="text: contato.nome"></td>
-            <td data-bind="text: contato.telefone"></td>
+            <td data-bind="text: chamada.chamadaId"></td>
+            <td data-bind="text: chamada.contato.grupo.nome"></td>
+            <td colspan="2" data-bind="text: chamada.contato.nome"></td>
+            <td data-bind="text: chamada.contato.telefone"></td>
             <td data-bind="text: contato.telefone"></td>
             <td data-bind="text: contato.telefone"></td>
             <td>
-                <button class="btn btn-warning" data-bind="click: $parent.remover.bind($parent, contato)">Excluir</button>
+                <button class="btn btn-warning" data-bind="click: $parent.remover.bind($parent, chamada)">Excluir</button>
             </td>
         </tr>
     </tbody>
