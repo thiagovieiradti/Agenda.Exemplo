@@ -5,7 +5,8 @@
 
     this.$api = {
         $grupo: new GrupoAPI(this),
-        $contato: new ContatoAPI(this)
+        $contato: new ContatoAPI(this),
+        $chamada: new ChamadaAPI(this)
     };
 
     this.init = function () {

@@ -1,4 +1,4 @@
-﻿function ChamadaApi($app) {
+﻿function ChamadaAPI($app) {
     this.$app = $app;
 };
 
@@ -13,7 +13,7 @@ ChamadaAPI.prototype.InserirChamada = function (chamada, retorno, contexto) {
     this.$app.AjaxPost(url, chamada, retorno, null, contexto);
 };
 
-ChamadaApi.prototype.RemoverChamada = function (chamadaId, retorno, contexto) {
+ChamadaAPI.prototype.RemoverChamada = function (chamadaId, retorno, contexto) {
     let url = URL_API + 'chamada' + chamadaId;
     this.$app.AjaxDelete(url, retorno, null, contexto);
 };
