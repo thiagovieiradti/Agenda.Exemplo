@@ -18,9 +18,9 @@ namespace Agenda.Exemplo.RepositorioMock
             return chamada.ChamadaId;
         }
 
-        public Chamada ObterChamada()
+        public Chamada ObterChamada(int chamadaId)
         {
-            throw new NotImplementedException();
+            return ChamadaMock.listachamadas.First(c => c.ChamadaId == chamadaId) ;
         }
 
         public IList<Chamada> ObterChamadas(int? chamadaId)

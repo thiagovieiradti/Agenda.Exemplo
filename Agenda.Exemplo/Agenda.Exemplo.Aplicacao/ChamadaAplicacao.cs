@@ -24,9 +24,9 @@ namespace Agenda.Exemplo.Aplicacao
             return _chamadaRepositorio.InserirChamada(chamada.CriarEntidade());
         }
 
-        public ChamadaDTO ObterChamada()
+        public ChamadaDTO ObterChamada(int chamadaId)
         {
-            throw new NotImplementedException();
+            return _chamadaRepositorio.ObterChamada(chamadaId).CriarDTO();
         }
 
         public IList<ChamadaDTO> ObterChamadas(int? chamadaId)

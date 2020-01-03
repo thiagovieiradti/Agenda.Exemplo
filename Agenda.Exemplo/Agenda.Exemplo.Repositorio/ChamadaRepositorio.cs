@@ -15,7 +15,7 @@ namespace Agenda.Exemplo.Repositorio
             throw new NotImplementedException();
         }
 
-        public Chamada ObterChamada()
+        public Chamada ObterChamada(int chamadaId)
         {
             throw new NotImplementedException();
         }

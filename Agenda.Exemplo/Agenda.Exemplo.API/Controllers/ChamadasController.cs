@@ -34,6 +34,21 @@ namespace Agenda.Exemplo.API.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("{chamadaId:int}")]
+        [ResponseType(typeof(ChamadaDTO))]
+        public IHttpActionResult ObterChamada(int chamadaId)
+        {
+            try
+            {
+                return Ok(_chamadaAplicacao.ObterChamada(chamadaId));
+            }
+            catch (Exception e)
+            {
+                return InternalServerError(e);
+            }
+        }
+
         [HttpPost]
         [Route("")]
         [ResponseType(typeof(int))]
@@ -51,6 +66,7 @@ namespace Agenda.Exemplo.API.Controllers
 
         [HttpDelete]
         [Route("{chamadaId:int}")]
+        [ResponseType(typeof(int))]
         public IHttpActionResult RemoverChamada(int contatoId)
         {
             try
