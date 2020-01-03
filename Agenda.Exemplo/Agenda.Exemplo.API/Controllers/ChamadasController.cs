@@ -66,12 +66,11 @@ namespace Agenda.Exemplo.API.Controllers
 
         [HttpDelete]
         [Route("{chamadaId:int}")]
-        [ResponseType(typeof(int))]
-        public IHttpActionResult RemoverChamada(int contatoId)
+        public IHttpActionResult RemoverChamada(int chamadaId)
         {
             try
             {
-                _chamadaAplicacao.RemoverChamada(contatoId);
+                _chamadaAplicacao.RemoverChamada(chamadaId);
                 return Ok();
             }
             catch (Exception e)
