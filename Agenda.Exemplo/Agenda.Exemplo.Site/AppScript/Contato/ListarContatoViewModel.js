@@ -101,5 +101,5 @@ ListarContatoViewModel.prototype.RemoverContato = function (contato) {
         this.ObterContatos();
     };
 
-    this.$app.$api.$contato.RemoverContato(contato.contatoId, retorno, this);
+    this.$app.$api.$contato.RemoverContato(contato.contatoId(), retorno, this);
 };
