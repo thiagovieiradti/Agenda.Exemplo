@@ -14,7 +14,7 @@ ChamadaAPI.prototype.InserirChamada = function (chamada, retorno, contexto) {
 };
 
 ChamadaAPI.prototype.RemoverChamada = function (chamadaId, retorno, contexto) {
-    let url = URL_API + 'chamada' + chamadaId;
+    let url = URL_API + 'chamada/' + chamadaId;
     this.$app.AjaxDelete(url, retorno, null, contexto);
 };
 

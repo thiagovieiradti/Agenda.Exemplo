@@ -10,8 +10,8 @@
         this.Iniciar();
     };
 
-    this.remover = function () {
-        this.RemoverChamada();
+    this.remover = function (chamada) {
+        this.RemoverChamada(chamada);
     };
 
 };
@@ -28,7 +28,7 @@ ListarChamadaViewModel.prototype.ObterChamadas = function () {
     this.$app.$api.$chamada.ObterChamadas(this.chamadaId, retorno, this);
 }
 
-ListarChamadaViewModel.prototype.RemoverChamada = function () {
+ListarChamadaViewModel.prototype.RemoverChamada = function (chamada) {
     var retorno = function () {
         this.$app.ExibirMensagemSucesso('Chamada excluida');
         this.ObterChamadas();
