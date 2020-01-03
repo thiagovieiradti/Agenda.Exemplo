@@ -9,6 +9,8 @@
     this.grupoId = ko.observable();
     this.nome = ko.observable();
 
+    this.chamada = new Chamada();
+
     this.init = function ($app) {
         this.$app = $app;
         this.Iniciar();
@@ -36,12 +38,12 @@
 
 };
 
-ListarContatoViewModel.prototype.InserirChamada = function () {
+ListarContatoViewModel.prototype.InserirChamada = function (contato) {
     var retorno = function () {
         this.$app.ExibirMensagemSucesso('Chamada realizada');
     };
 
-    this.$app.$api.$chamada.InserirChamada(this.chamada.CriarDTIO(), retorno, this)
+    this.$app.$api.$chamada.InserirChamada(this.chamada.CriarDTO(contato), retorno, this)
 };
 
 ListarContatoViewModel.prototype.Iniciar = function () {
@@ -60,11 +62,17 @@ ListarContatoViewModel.prototype.ObterGrupos = function () {
 ListarContatoViewModel.prototype.ObterContatos = function () {
 
     var retorno = function (data) {
-        this.contatos(data);
+        for (var i = 0; i < data.length; i++) {
+            var contato = new Contato();
+            contato.Preencher(data[i]);
+            this.contatos.push(contato);
+        }
     };
 
     this.$app.$api.$contato.ObterContatos(this.grupoId(), this.nome(), retorno, this);
 };
+
+
 
 ListarContatoViewModel.prototype.AbrirPaginaInserir = function () {
     var link = {

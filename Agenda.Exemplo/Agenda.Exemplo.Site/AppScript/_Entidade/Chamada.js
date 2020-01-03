@@ -1,8 +1,12 @@
 ﻿function Chamada() {
-    this.CriarDtO = function () {
+
+    this.chamadaId = ko.observable();
+
+    this.CriarDTO = function (contato) {
+
         return {
             chamadaId: this.chamadaId,
-            contato: this.contato.CriarDtO,
+            contato: contato.CriarDTO(),
         }
     };
 }
