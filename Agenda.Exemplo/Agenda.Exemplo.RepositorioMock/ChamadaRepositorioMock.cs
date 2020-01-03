@@ -33,9 +33,9 @@ namespace Agenda.Exemplo.RepositorioMock
             return listaChamadas;
         }
 
-        public void RemoverChamada()
+        public void RemoverChamada(int chamadaId)
         {
-            throw new NotImplementedException();
+            ChamadaMock.listachamadas.RemoveAll(c => c.ChamadaId == chamadaId);
         }
     }
 }

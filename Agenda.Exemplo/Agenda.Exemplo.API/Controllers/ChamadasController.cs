@@ -48,5 +48,20 @@ namespace Agenda.Exemplo.API.Controllers
                 return InternalServerError(e);
             }
         }
+
+        [HttpDelete]
+        [Route("{chamadaId:int}")]
+        public IHttpActionResult RemoverChamada(int contatoId)
+        {
+            try
+            {
+                _chamadaAplicacao.RemoverChamada(contatoId);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return InternalServerError(e);
+            }
+        }
     }
 }

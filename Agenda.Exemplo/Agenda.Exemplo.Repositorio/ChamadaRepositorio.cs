@@ -25,7 +25,7 @@ namespace Agenda.Exemplo.Repositorio
             throw new NotImplementedException();
         }
 
-        public void RemoverChamada()
+        public void RemoverChamada(int chamadaId)
         {
             throw new NotImplementedException();
         }

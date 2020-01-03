@@ -34,9 +34,9 @@ namespace Agenda.Exemplo.Aplicacao
             return _chamadaRepositorio.ObterChamadas(chamadaId).CriarDTO();
         }
 
-        public void RemoverChamada()
+        public void RemoverChamada(int chamadaId)
         {
-            throw new NotImplementedException();
+             _chamadaRepositorio.RemoverChamada(chamadaId);
         }
     }
 }
