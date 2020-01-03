@@ -60,7 +60,7 @@ ListarContatoViewModel.prototype.ObterGrupos = function () {
 };
 
 ListarContatoViewModel.prototype.ObterContatos = function () {
-
+    this.contatos.removeAll();
     var retorno = function (data) {
         for (var i = 0; i < data.length; i++) {
             var contato = new Contato();
