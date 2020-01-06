@@ -10,7 +10,6 @@ namespace Agenda.Exemplo.Dominio.DTO
     {
         public int chamadaId { get; set; }
         public ContatoDTO contato { get; set; }
-        public String dia { get; set; }
-        public String hora { get; set; }
+        public DateTime dataHora { get; set; }
     }
 }
