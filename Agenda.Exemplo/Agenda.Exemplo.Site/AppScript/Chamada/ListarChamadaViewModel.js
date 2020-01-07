@@ -3,6 +3,8 @@
     this.$app = null;
     this.$parent = $parent;
 
+    this.nome = ko.observable();
+
     this.chamadas = ko.observableArray();
 
     this.init = function ($app) {
@@ -14,6 +16,9 @@
         this.RemoverChamada(chamada);
     };
 
+    this.filtrar = function () {
+        this.ObterChamadas();
+    }
 };
 
 ListarChamadaViewModel.prototype.Iniciar = function () {
@@ -34,5 +39,5 @@ ListarChamadaViewModel.prototype.RemoverChamada = function (chamada) {
         this.ObterChamadas();
     }
 
-    this.$app.$api.$chamada.RemoverChamada(chamada.chamadaId, retorno, this);
+    this.$app.$api.$chamada.RemoverChamada(chamada.chamadaId,chamada.nome, retorno, this);
 };

@@ -1,33 +1,58 @@
-﻿<!-- ko if: chamadas().length == 0 -->
-<p>Nenhuma Chamada encontrada</p>
-<!-- /ko -->
+﻿<div class="row">
 
+    <div class="col-md-12">
 
-<!-- ko if: chamadas().length > 0 -->
-<table class="table">
-    <thead>
-        <tr>
-            <td><strong>#</strong></td>
-            <td><strong>Grupo</strong></td>
-            <td colspan="2"><strong>Nome</strong></td>
-            <td><strong>Telefone</strong></td>
-            <td><strong>Data</strong></td>
-            <td><strong>Hora</strong></td>
+        <h4> Lista de chamadas</h4>
 
-        </tr>
-    </thead>
-    <tbody data-bind="foreach: {data: chamadas, as: 'chamada'}">
-        <tr>
-            <td data-bind="text: chamada.chamadaId"></td>
-            <td data-bind="text: chamada.contato.grupo.nome"></td>
-            <td colspan="2" data-bind="text: chamada.contato.nome"></td>
-            <td data-bind="text: chamada.contato.telefone"></td>
-            <td data-bind="text: chamada.dataHora"></td>
-            <td data-bind="text: chamada.dataHora"></td>
-            <td>
-                <button class="btn btn-warning" data-bind="click: $parent.remover.bind($parent, chamada)">Excluir</button>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<!-- /ko -->
+        <div class="row">
+            <!--<div class="col-md-3">
+                <label>Grupo</label>
+                <select class="form-control" data-bind="options: grupos, optionsText: 'nome', optionsValue: 'grupoId', optionsCaption: '', value: grupoId"></select>
+            </div>-->
+            <div class="col-md-3">
+                <label>Nome</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" data-bind="textInput: nome, enterkey: filtrar" />
+                    <span class="input-group-btn">
+                        <button class="btn" data-bind="click: filtrar">Filtrar</button>
+                    </span>
+                </div>
+            </div>
+            <div classs="col-md-4">
+                <span>TESTE</span>
+            </div>
+        </div>
+
+        <!-- ko if: chamadas().length == 0 -->
+        <p>Nenhuma Chamada encontrada</p>
+        <!-- /ko -->
+        <!-- ko if: chamadas().length > 0 -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <td><strong>#</strong></td>
+                    <td><strong>Grupo</strong></td>
+                    <td colspan="2"><strong>Nome</strong></td>
+                    <td><strong>Telefone</strong></td>
+                    <td><strong>Data</strong></td>
+                    <td><strong>Hora</strong></td>
+
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: {data: chamadas, as: 'chamada'}">
+                <tr>
+                    <td data-bind="text: chamada.chamadaId"></td>
+                    <td data-bind="text: chamada.contato.grupo.nome"></td>
+                    <td colspan="2" data-bind="text: chamada.contato.nome"></td>
+                    <td data-bind="text: chamada.contato.telefone"></td>
+                    <td data-bind="text: chamada.dataHora"></td>
+                    <td data-bind="text: chamada.dataHora"></td>
+                    <td>
+                        <button class="btn btn-warning" data-bind="click: $parent.remover.bind($parent, chamada)">Excluir</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- /ko -->
+    </div>
+</div>
