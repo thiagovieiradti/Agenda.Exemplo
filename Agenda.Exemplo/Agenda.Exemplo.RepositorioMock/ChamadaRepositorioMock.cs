@@ -32,7 +32,7 @@ namespace Agenda.Exemplo.RepositorioMock
             }
             if (!string.IsNullOrEmpty(nome))
             {
-                listaChamadas = listaChamadas.Where(c => c.Contato.Nome.Contains(nome)).ToList();
+                listaChamadas = listaChamadas.Where(c => c.Contato.Nome.ToLower().Contains(nome.ToLower())).ToList();
             }
             return listaChamadas;
         }
