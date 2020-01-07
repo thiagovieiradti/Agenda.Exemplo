@@ -30,7 +30,7 @@ ListarChamadaViewModel.prototype.ObterChamadas = function () {
         this.chamadas(data);
     };
 
-    this.$app.$api.$chamada.ObterChamadas(this.chamadaId, retorno, this);
+    this.$app.$api.$chamada.ObterChamadas(this.chamadaId, this.nome(), retorno, this);
 }
 
 ListarChamadaViewModel.prototype.RemoverChamada = function (chamada) {
@@ -39,5 +39,5 @@ ListarChamadaViewModel.prototype.RemoverChamada = function (chamada) {
         this.ObterChamadas();
     }
 
-    this.$app.$api.$chamada.RemoverChamada(chamada.chamadaId,chamada.nome, retorno, this);
+    this.$app.$api.$chamada.RemoverChamada(chamada.chamadaId, retorno, this);
 };
