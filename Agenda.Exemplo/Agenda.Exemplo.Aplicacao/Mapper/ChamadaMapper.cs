@@ -17,6 +17,8 @@ namespace Agenda.Exemplo.Aplicacao.Mapper
                 chamadaId = entidade.ChamadaId,
                 contato = entidade.Contato.CriarDTO(),
                 dataHora = entidade.DataHora,
+                data = entidade.Data,
+                hora = entidade.Hora,
             };
         }
 
@@ -32,6 +34,8 @@ namespace Agenda.Exemplo.Aplicacao.Mapper
                 ChamadaId = dto.chamadaId,
                 Contato = dto.contato.CriarEntidade(),
                 DataHora = DateTime.Now,
+                Data = DateTime.Now.ToShortDateString(),
+                Hora = DateTime.Now.ToShortTimeString(),
             };
         }
     }

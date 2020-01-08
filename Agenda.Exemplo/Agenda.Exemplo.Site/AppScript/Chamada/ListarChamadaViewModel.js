@@ -41,8 +41,10 @@ ListarChamadaViewModel.prototype.ObterChamadas = function () {
     var retorno = function (data) {
         this.chamadas(data);
     };
+    let chamada = new Chamada();
+    let dataFormatada = chamada.FormatData(this.data());
 
-    this.$app.$api.$chamada.ObterChamadas(this.grupoId(), this.nome(),this.data(), retorno, this);
+    this.$app.$api.$chamada.ObterChamadas(this.grupoId(), this.nome(),dataFormatada, retorno, this);
 }
 
 ListarChamadaViewModel.prototype.RemoverChamada = function (chamada) {

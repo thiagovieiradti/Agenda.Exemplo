@@ -9,4 +9,12 @@
             contato: contato.CriarDTO(),
         }
     };
+
+    this.FormatData = function (data) {
+        let dia = data[8] + data[9];
+        let mes = data[5] + data[6];
+        let ano = data[0] + data[1] + data[2] + data[3];
+        let dataformatada = dia + "/" + mes + "/" + ano;
+        return dataformatada;
+    }
 }
