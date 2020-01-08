@@ -10,10 +10,15 @@
                 <select class="form-control" data-bind="options: grupos, optionsText: 'nome', optionsValue: 'grupoId', optionsCaption: '', value: grupoId"></select>
             </div>
             <div class="col-md-3">
+                <label>Data</label>
+                <div class="input-group">
+                    <input type="date" class="form-control" data-bind="textInput: data, enterkey: filtrar" />
+                </div>
+            </div>
+            <div class="col-md-3">
                 <label>Nome</label>
                 <div class="input-group">
                     <input type="text" class="form-control" data-bind="textInput: nome, enterkey: filtrar" />
-                    <input type="date" class="form-control" data-bind="textInput: data, enterkey: filtrar" />
                     <span class="input-group-btn">
                         <button class="btn" data-bind="click: filtrar">Filtrar</button>
                     </span>

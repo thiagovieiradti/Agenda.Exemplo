@@ -42,7 +42,7 @@ ListarChamadaViewModel.prototype.ObterChamadas = function () {
         this.chamadas(data);
     };
 
-    this.$app.$api.$chamada.ObterChamadas(this.grupoId(), this.nome(),this.data, retorno, this);
+    this.$app.$api.$chamada.ObterChamadas(this.grupoId(), this.nome(),this.data(), retorno, this);
 }
 
 ListarChamadaViewModel.prototype.RemoverChamada = function (chamada) {
