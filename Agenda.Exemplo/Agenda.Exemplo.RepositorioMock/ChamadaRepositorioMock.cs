@@ -23,12 +23,12 @@ namespace Agenda.Exemplo.RepositorioMock
             return ChamadaMock.listachamadas.First(c => c.ChamadaId == chamadaId) ;
         }
 
-        public IList<Chamada> ObterChamadas(int? chamadaId, string nome)
+        public IList<Chamada> ObterChamadas(int? grupoId, string nome)
         {
             var listaChamadas = ChamadaMock.listachamadas;
-            if (chamadaId.HasValue)
+            if (grupoId.HasValue)
             {
-                listaChamadas = listaChamadas.Where(c => c.ChamadaId == chamadaId).ToList();
+                listaChamadas = listaChamadas.Where(c => c.Contato.Grupo.GrupoId == grupoId).ToList();
             }
             if (!string.IsNullOrEmpty(nome))
             {
