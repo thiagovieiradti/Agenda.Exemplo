@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -68,14 +69,17 @@
   <ItemGroup>
     <Content Include="AppScript\Agenda\AgendaViewModel.js" />
     <Content Include="AppScript\Agenda\init.js" />
+    <Content Include="AppScript\Chamada\ListarChamadaViewModel.js" />
     <Content Include="AppScript\Contato\EditarContatoViewModel.js" />
     <Content Include="AppScript\Contato\InserirContatoViewModel.js" />
     <Content Include="AppScript\Contato\ListarContatoViewModel.js" />
     <Content Include="AppScript\Grupo\EditarGrupoViewModel.js" />
     <Content Include="AppScript\Grupo\InserirGrupoViewModel.js" />
+    <Content Include="AppScript\_API\ChamadaAPI.js" />
     <Content Include="AppScript\_API\ContatoAPI.js" />
     <Content Include="AppScript\_Aplicacao\Constantes.js" />
     <Content Include="AppScript\_Entidade\Contato.js" />
+    <Content Include="AppScript\_Entidade\Chamada.js" />
     <Content Include="AppScript\_KO\_Binding\enterkey.js" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
@@ -92,6 +96,7 @@
     <Content Include="AppScript\_Entidade\Grupo.js" />
     <Content Include="favicon.ico" />
     <Content Include="Index.html" />
+    <Content Include="Paginas\Chamada\ListarChamada.html" />
     <Content Include="Paginas\Contato\Contato.html" />
     <Content Include="Paginas\Contato\ListarContato.html" />
     <Content Include="Paginas\Grupo\Grupo.html" />

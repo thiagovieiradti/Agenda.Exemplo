@@ -9,6 +9,8 @@
     this.grupoId = ko.observable();
     this.nome = ko.observable();
 
+    this.chamada = new Chamada();
+
     this.init = function ($app) {
         this.$app = $app;
         this.Iniciar();
@@ -30,6 +32,18 @@
         this.AbrirPaginaEditar(contato);
     };
 
+    this.chamar = function (contato) {
+        this.InserirChamada(contato);
+    };
+
+};
+
+ListarContatoViewModel.prototype.InserirChamada = function (contato) {
+    var retorno = function () {
+        this.$app.ExibirMensagemSucesso('Chamada realizada');
+    };
+
+    this.$app.$api.$chamada.InserirChamada(this.chamada.CriarDTO(contato), retorno, this)
 };
 
 ListarContatoViewModel.prototype.Iniciar = function () {
@@ -46,13 +60,19 @@ ListarContatoViewModel.prototype.ObterGrupos = function () {
 };
 
 ListarContatoViewModel.prototype.ObterContatos = function () {
-
+    this.contatos.removeAll();
     var retorno = function (data) {
-        this.contatos(data);
+        for (var i = 0; i < data.length; i++) {
+            var contato = new Contato();
+            contato.Preencher(data[i]);
+            this.contatos.push(contato);
+        }
     };
 
     this.$app.$api.$contato.ObterContatos(this.grupoId(), this.nome(), retorno, this);
 };
+
+
 
 ListarContatoViewModel.prototype.AbrirPaginaInserir = function () {
     var link = {
@@ -81,5 +101,5 @@ ListarContatoViewModel.prototype.RemoverContato = function (contato) {
         this.ObterContatos();
     };
 
-    this.$app.$api.$contato.RemoverContato(contato.contatoId, retorno, this);
+    this.$app.$api.$contato.RemoverContato(contato.contatoId(), retorno, this);
 };

@@ -2,7 +2,7 @@
 
     <div class="col-md-12">
 
-        <h4>Lista de Contatos</h4>
+        <h4> Lista de chamadas</h4>
 
         <div class="row">
             <div class="col-md-3">
@@ -23,13 +23,10 @@
             </div>
         </div>
 
-        <br />
-
-        <!-- ko if: contatos().length == 0 -->
-        <p>Nenhum contato encontrato.</p>
+        <!-- ko if: chamadas().length == 0 -->
+        <p>Nenhuma Chamada encontrada</p>
         <!-- /ko -->
-
-        <!-- ko if: contatos().length > 0-->
+        <!-- ko if: chamadas().length > 0 -->
         <table class="table">
             <thead>
                 <tr>
@@ -37,25 +34,25 @@
                     <td><strong>Grupo</strong></td>
                     <td colspan="2"><strong>Nome</strong></td>
                     <td><strong>Telefone</strong></td>
+                    <td><strong>Data</strong></td>
+                    <td><strong>Hora</strong></td>
+
                 </tr>
             </thead>
-            <tbody data-bind="foreach: {data: contatos, as: 'contato'}">
+            <tbody data-bind="foreach: {data: chamadas, as: 'chamada'}">
                 <tr>
-                    <td data-bind="text: contato.contatoId"></td>
-                    <td data-bind="text: contato.grupo.nome"></td>
-                    <td colspan="2" data-bind="text: contato.nome"></td>
-                    <td data-bind="text: contato.telefone"></td>
+                    <td data-bind="text: chamada.chamadaId"></td>
+                    <td data-bind="text: chamada.contato.grupo.nome"></td>
+                    <td colspan="2" data-bind="text: chamada.contato.nome"></td>
+                    <td data-bind="text: chamada.contato.telefone"></td>
+                    <td data-bind="text: chamada.dataHora"></td>
+                    <td data-bind="text: chamada.dataHora"></td>
                     <td>
-                        <button class="btn btn-primary" data-bind="click: $parent.editar.bind($parent, contato)">Editar</button>
-                        <button class="btn btn-primary" data-bind="click: $parent.chamar.bind($parent, contato)">Registrar Chamada</button>
-                        <button class="btn btn-warning" data-bind="click: $parent.remover.bind($parent, contato)">Excluir</button>
+                        <button class="btn btn-warning" data-bind="click: $parent.remover.bind($parent, chamada)">Excluir</button>
                     </td>
                 </tr>
             </tbody>
         </table>
         <!-- /ko -->
-
-        <button class="btn btn-success float-right" data-bind="click: inserir">Adicionar</button>
-
     </div>
 </div>

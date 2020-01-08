@@ -40,8 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChamadaAplicacao.cs" />
     <Compile Include="ContatoAplicacao.cs" />
     <Compile Include="GrupoAplicacao.cs" />
+    <Compile Include="Mapper\ChamadaMapper.cs" />
     <Compile Include="Mapper\ContatoMapper.cs" />
     <Compile Include="Mapper\GrupoMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
