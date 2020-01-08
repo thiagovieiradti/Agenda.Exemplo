@@ -2,10 +2,11 @@
     this.$app = $app;
 };
 
-ChamadaAPI.prototype.ObterChamadas = function (grupoId, nome, retorno, contexto) {
+ChamadaAPI.prototype.ObterChamadas = function (grupoId, nome, data, retorno, contexto) {
     let url = URL_API + 'chamadas?';
     if (grupoId) url += 'grupoId=' + grupoId + '&';
     if (nome) url += 'nome=' + nome + '&';
+    if (data) url += 'data=' + data + '&';
     this.$app.AjaxGet(url, retorno, null, contexto);
 };
 

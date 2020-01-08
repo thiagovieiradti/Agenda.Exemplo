@@ -5,6 +5,7 @@
 
     this.nome = ko.observable();
     this.grupoId = ko.observable();
+    this.data = ko.observable();
 
     this.chamadas = ko.observableArray();
     this.grupos = ko.observableArray();
@@ -41,7 +42,7 @@ ListarChamadaViewModel.prototype.ObterChamadas = function () {
         this.chamadas(data);
     };
 
-    this.$app.$api.$chamada.ObterChamadas(this.grupoId(), this.nome(), retorno, this);
+    this.$app.$api.$chamada.ObterChamadas(this.grupoId(), this.nome(),this.data, retorno, this);
 }
 
 ListarChamadaViewModel.prototype.RemoverChamada = function (chamada) {
