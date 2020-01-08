@@ -12,7 +12,9 @@ namespace Agenda.Exemplo.RepositorioMock.EntidadeMock
         public static Chamada chamadamock1 = new Chamada()
         {
             ChamadaId = 1,
-            Contato = ContatoMock.contatoMock1
+            Contato = ContatoMock.contatoMock1,
+            Data = "01/01/2020",
+            Hora = "12:00",
         };
 
         public static List<Chamada> listachamadas = new List<Chamada>

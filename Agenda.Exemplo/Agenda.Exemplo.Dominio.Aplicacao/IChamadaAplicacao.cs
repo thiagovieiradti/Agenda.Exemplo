@@ -11,7 +11,7 @@ namespace Agenda.Exemplo.Dominio.Aplicacao
     {
         int InserirChamada(ChamadaDTO chamada);
         ChamadaDTO ObterChamada(int chamadaId);
-        IList<ChamadaDTO> ObterChamadas(int? grupoId, string nome);
+        IList<ChamadaDTO> ObterChamadas(int? grupoId, string nome, string data);
         void RemoverChamada(int chamadaId);
     }
 }

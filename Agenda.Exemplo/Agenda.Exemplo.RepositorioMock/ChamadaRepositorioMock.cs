@@ -23,7 +23,7 @@ namespace Agenda.Exemplo.RepositorioMock
             return ChamadaMock.listachamadas.First(c => c.ChamadaId == chamadaId) ;
         }
 
-        public IList<Chamada> ObterChamadas(int? grupoId, string nome)
+        public IList<Chamada> ObterChamadas(int? grupoId, string nome, string data)
         {
             var listaChamadas = ChamadaMock.listachamadas;
             if (grupoId.HasValue)
@@ -33,6 +33,10 @@ namespace Agenda.Exemplo.RepositorioMock
             if (!string.IsNullOrEmpty(nome))
             {
                 listaChamadas = listaChamadas.Where(c => c.Contato.Nome.ToLower().Contains(nome.ToLower())).ToList();
+            }
+            if (!string.IsNullOrEmpty(data))
+            {
+                listaChamadas = listaChamadas.Where(c => c.Data.Contains(data)).ToList();
             }
             return listaChamadas;
         }

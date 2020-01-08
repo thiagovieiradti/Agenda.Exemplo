@@ -29,9 +29,9 @@ namespace Agenda.Exemplo.Aplicacao
             return _chamadaRepositorio.ObterChamada(chamadaId).CriarDTO();
         }
 
-        public IList<ChamadaDTO> ObterChamadas(int? grupoId, string nome)
+        public IList<ChamadaDTO> ObterChamadas(int? grupoId, string nome, string data)
         {
-            return _chamadaRepositorio.ObterChamadas(grupoId, nome).CriarDTO();
+            return _chamadaRepositorio.ObterChamadas(grupoId, nome, data).CriarDTO();
         }
 
         public void RemoverChamada(int chamadaId)

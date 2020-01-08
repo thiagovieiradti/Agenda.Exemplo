@@ -12,7 +12,7 @@ namespace Agenda.Exemplo.Dominio.Repositorio
     {
         int InserirChamada(Chamada chamada);
         Chamada ObterChamada(int chamadaId);
-        IList<Chamada> ObterChamadas(int? chamadaId, string nome);
+        IList<Chamada> ObterChamadas(int? chamadaId, string nome, string data);
         void RemoverChamada(int chamadaId);
     }
 

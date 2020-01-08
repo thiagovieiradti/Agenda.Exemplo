@@ -20,7 +20,7 @@ namespace Agenda.Exemplo.Repositorio
             throw new NotImplementedException();
         }
 
-        public IList<Chamada> ObterChamadas(int? chamadaId, string nome)
+        public IList<Chamada> ObterChamadas(int? chamadaId, string nome, string data)
         {
             throw new NotImplementedException();
         }
